@@ -21,7 +21,8 @@
     "url": "https://github.com/siteboon/claudecodeui/issues"
   },
   "scripts": {
-    "dev": "concurrently --kill-others \"npm run server\" \"npm run client\"",
+    "cleanup": "node scripts/cleanup-ports.js",
+    "dev": "npm run cleanup && concurrently --kill-others \"npm run server\" \"npm run client\"",
     "server": "node server/index.js",
     "client": "vite --host",
     "build": "vite build",
@@ -77,6 +78,7 @@
     "xterm-addon-fit": "^0.8.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.56.1",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@vitejs/plugin-react": "^4.6.0",
