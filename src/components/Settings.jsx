@@ -553,7 +553,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
   };
 
   const handleMcpDelete = async (serverId, scope) => {
-    if (confirm('Are you sure you want to delete this MCP server?')) {
+    if (confirm('确定要删除此 MCP 服务器吗？')) {
       try {
         await deleteMcpServer(serverId, scope);
         setSaveStatus('success');
@@ -630,7 +630,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
           <div className="flex items-center gap-3">
             <SettingsIcon className="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
             <h2 className="text-lg md:text-xl font-semibold text-foreground">
-              Settings
+              设置
             </h2>
           </div>
           <Button
@@ -655,7 +655,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                     : 'border-transparent text-muted-foreground hover:text-foreground'
                 }`}
               >
-                Tools
+                工具
               </button>
               <button
                 onClick={() => setActiveTab('appearance')}
@@ -665,7 +665,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                     : 'border-transparent text-muted-foreground hover:text-foreground'
                 }`}
               >
-                Appearance
+                外观
               </button>
               <button
                 onClick={() => setActiveTab('tasks')}
@@ -675,7 +675,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                     : 'border-transparent text-muted-foreground hover:text-foreground'
                 }`}
               >
-                Tasks
+                任务
               </button>
             </div>
           </div>
@@ -693,10 +693,10 @@ function Settings({ isOpen, onClose, projects = [] }) {
         <div className="flex items-center justify-between">
           <div>
             <div className="font-medium text-foreground">
-              Dark Mode
+              深色模式
             </div>
             <div className="text-sm text-muted-foreground">
-              Toggle between light and dark themes
+              在明亮和深色主题之间切换
             </div>
           </div>
           <button
@@ -706,7 +706,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
             aria-checked={isDarkMode}
             aria-label="Toggle dark mode"
           >
-            <span className="sr-only">Toggle dark mode</span>
+            <span className="sr-only">切换深色模式</span>
             <span
               className={`${
                 isDarkMode ? 'translate-x-7' : 'translate-x-1'
@@ -729,10 +729,10 @@ function Settings({ isOpen, onClose, projects = [] }) {
         <div className="flex items-center justify-between">
           <div>
             <div className="font-medium text-foreground">
-              Project Sorting
+              项目排序
             </div>
             <div className="text-sm text-muted-foreground">
-              How projects are ordered in the sidebar
+              侧边栏中项目的排序方式
             </div>
           </div>
           <select
@@ -740,8 +740,8 @@ function Settings({ isOpen, onClose, projects = [] }) {
             onChange={(e) => setProjectSortOrder(e.target.value)}
             className="text-sm bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2 w-32"
           >
-            <option value="name">Alphabetical</option>
-            <option value="date">Recent Activity</option>
+            <option value="name">按字母顺序</option>
+            <option value="date">最近活动</option>
           </select>
         </div>
       </div>
@@ -797,7 +797,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
               <div className="flex items-center gap-3">
                 <AlertTriangle className="w-5 h-5 text-orange-500" />
                 <h3 className="text-lg font-medium text-foreground">
-                  Permission Settings
+                  权限设置
                 </h3>
               </div>
               <div className="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-lg p-4">
@@ -810,10 +810,10 @@ function Settings({ isOpen, onClose, projects = [] }) {
                   />
                   <div>
                     <div className="font-medium text-orange-900 dark:text-orange-100">
-                      Skip permission prompts (use with caution)
+                      跳过权限提示（谨慎使用）
                     </div>
                     <div className="text-sm text-orange-700 dark:text-orange-300">
-                      Equivalent to --dangerously-skip-permissions flag
+                      相当于 --dangerously-skip-permissions 标志
                     </div>
                   </div>
                 </label>
@@ -825,17 +825,17 @@ function Settings({ isOpen, onClose, projects = [] }) {
               <div className="flex items-center gap-3">
                 <LogIn className="w-5 h-5 text-blue-500" />
                 <h3 className="text-lg font-medium text-foreground">
-                  Authentication
+                  身份验证
                 </h3>
               </div>
               <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
                 <div className="flex items-center justify-between">
                   <div>
                     <div className="font-medium text-blue-900 dark:text-blue-100">
-                      Claude CLI Login
+                      Claude CLI 登录
                     </div>
                     <div className="text-sm text-blue-700 dark:text-blue-300">
-                      Sign in to your Claude account to enable AI features
+                      登录您的 Claude 账户以启用 AI 功能
                     </div>
                   </div>
                   <Button
@@ -844,7 +844,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                     size="sm"
                   >
                     <LogIn className="w-4 h-4 mr-2" />
-                    Login
+                    登录
                   </Button>
                 </div>
               </div>
@@ -855,11 +855,11 @@ function Settings({ isOpen, onClose, projects = [] }) {
               <div className="flex items-center gap-3">
                 <Shield className="w-5 h-5 text-green-500" />
                 <h3 className="text-lg font-medium text-foreground">
-                  Allowed Tools
+                  允许的工具
                 </h3>
               </div>
               <p className="text-sm text-muted-foreground">
-                Tools that are automatically allowed without prompting for permission
+                无需提示即可自动允许的工具
               </p>
               
               <div className="flex flex-col sm:flex-row gap-2">
@@ -882,14 +882,14 @@ function Settings({ isOpen, onClose, projects = [] }) {
                   className="h-10 px-4 touch-manipulation"
                 >
                   <Plus className="w-4 h-4 mr-2 sm:mr-0" />
-                  <span className="sm:hidden">Add Tool</span>
+                  <span className="sm:hidden">添加工具</span>
                 </Button>
               </div>
 
               {/* Common tools quick add */}
               <div className="space-y-2">
                 <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                  Quick add common tools:
+                  快速添加常用工具：
                 </p>
                 <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
                   {commonTools.map(tool => (
@@ -925,7 +925,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                 ))}
                 {allowedTools.length === 0 && (
                   <div className="text-center py-8 text-gray-500 dark:text-gray-400">
-                    No allowed tools configured
+                    未配置允许的工具
                   </div>
                 )}
               </div>
@@ -936,11 +936,11 @@ function Settings({ isOpen, onClose, projects = [] }) {
               <div className="flex items-center gap-3">
                 <AlertTriangle className="w-5 h-5 text-red-500" />
                 <h3 className="text-lg font-medium text-foreground">
-                  Disallowed Tools
+                  禁止的工具
                 </h3>
               </div>
               <p className="text-sm text-muted-foreground">
-                Tools that are automatically blocked without prompting for permission
+                无需提示即自动阻止的工具
               </p>
               
               <div className="flex flex-col sm:flex-row gap-2">
@@ -963,7 +963,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                   className="h-10 px-4 touch-manipulation"
                 >
                   <Plus className="w-4 h-4 mr-2 sm:mr-0" />
-                  <span className="sm:hidden">Add Tool</span>
+                  <span className="sm:hidden">添加工具</span>
                 </Button>
               </div>
 
@@ -985,7 +985,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                 ))}
                 {disallowedTools.length === 0 && (
                   <div className="text-center py-8 text-gray-500 dark:text-gray-400">
-                    No disallowed tools configured
+                    未配置禁止的工具
                   </div>
                 )}
               </div>
@@ -994,14 +994,14 @@ function Settings({ isOpen, onClose, projects = [] }) {
             {/* Help Section */}
             <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
               <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">
-                Tool Pattern Examples:
+                工具模式示例：
               </h4>
               <ul className="text-sm text-blue-800 dark:text-blue-200 space-y-1">
-                <li><code className="bg-blue-100 dark:bg-blue-800 px-1 rounded">"Bash(git log:*)"</code> - Allow all git log commands</li>
-                <li><code className="bg-blue-100 dark:bg-blue-800 px-1 rounded">"Bash(git diff:*)"</code> - Allow all git diff commands</li>
-                <li><code className="bg-blue-100 dark:bg-blue-800 px-1 rounded">"Write"</code> - Allow all Write tool usage</li>
-                <li><code className="bg-blue-100 dark:bg-blue-800 px-1 rounded">"Read"</code> - Allow all Read tool usage</li>
-                <li><code className="bg-blue-100 dark:bg-blue-800 px-1 rounded">"Bash(rm:*)"</code> - Block all rm commands (dangerous)</li>
+                <li><code className="bg-blue-100 dark:bg-blue-800 px-1 rounded">"Bash(git log:*)"</code> - 允许所有 git log 命令</li>
+                <li><code className="bg-blue-100 dark:bg-blue-800 px-1 rounded">"Bash(git diff:*)"</code> - 允许所有 git diff 命令</li>
+                <li><code className="bg-blue-100 dark:bg-blue-800 px-1 rounded">"Write"</code> - 允许所有 Write 工具使用</li>
+                <li><code className="bg-blue-100 dark:bg-blue-800 px-1 rounded">"Read"</code> - 允许所有 Read 工具使用</li>
+                <li><code className="bg-blue-100 dark:bg-blue-800 px-1 rounded">"Bash(rm:*)"</code> - 阻止所有 rm 命令（危险）</li>
               </ul>
             </div>
 
@@ -1010,12 +1010,12 @@ function Settings({ isOpen, onClose, projects = [] }) {
               <div className="flex items-center gap-3">
                 <Server className="w-5 h-5 text-purple-500" />
                 <h3 className="text-lg font-medium text-foreground">
-                  MCP Servers
+                  MCP 服务器
                 </h3>
               </div>
               <div className="space-y-2">
                 <p className="text-sm text-muted-foreground">
-                  Model Context Protocol servers provide additional tools and data sources to Claude
+                  模型上下文协议服务器为 Claude 提供额外的工具和数据源
                 </p>
               </div>
               
@@ -1026,7 +1026,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                   size="sm"
                 >
                   <Plus className="w-4 h-4 mr-2" />
-                  Add MCP Server
+                  添加 MCP 服务器
                 </Button>
               </div>
 
@@ -1067,7 +1067,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                           )}
                           {server.raw && (
                             <details className="mt-2">
-                              <summary className="cursor-pointer text-xs text-muted-foreground hover:text-foreground">View full config</summary>
+                              <summary className="cursor-pointer text-xs text-muted-foreground hover:text-foreground">查看完整配置</summary>
                               <pre className="mt-1 text-xs bg-gray-100 dark:bg-gray-800 p-2 rounded overflow-x-auto">
                                 {JSON.stringify(server.raw, null, 2)}
                               </pre>
@@ -1096,11 +1096,11 @@ function Settings({ isOpen, onClose, projects = [] }) {
                         {/* Tools Discovery Results */}
                         {mcpServerTools[server.id] && (
                           <div className="mt-2 p-2 rounded text-xs bg-blue-50 dark:bg-blue-900/20 text-blue-800 dark:text-blue-200 border border-blue-200 dark:border-blue-800">
-                            <div className="font-medium mb-2">Available Tools & Resources</div>
+                            <div className="font-medium mb-2">可用工具和资源</div>
                             
                             {mcpServerTools[server.id].tools && mcpServerTools[server.id].tools.length > 0 && (
                               <div className="mb-2">
-                                <div className="font-medium text-xs mb-1">Tools ({mcpServerTools[server.id].tools.length}):</div>
+                                <div className="font-medium text-xs mb-1">工具 ({mcpServerTools[server.id].tools.length}):</div>
                                 <ul className="space-y-0.5">
                                   {mcpServerTools[server.id].tools.map((tool, i) => (
                                     <li key={i} className="flex items-start gap-1">
@@ -1119,7 +1119,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
 
                             {mcpServerTools[server.id].resources && mcpServerTools[server.id].resources.length > 0 && (
                               <div className="mb-2">
-                                <div className="font-medium text-xs mb-1">Resources ({mcpServerTools[server.id].resources.length}):</div>
+                                <div className="font-medium text-xs mb-1">资源 ({mcpServerTools[server.id].resources.length}):</div>
                                 <ul className="space-y-0.5">
                                   {mcpServerTools[server.id].resources.map((resource, i) => (
                                     <li key={i} className="flex items-start gap-1">
@@ -1138,7 +1138,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
 
                             {mcpServerTools[server.id].prompts && mcpServerTools[server.id].prompts.length > 0 && (
                               <div>
-                                <div className="font-medium text-xs mb-1">Prompts ({mcpServerTools[server.id].prompts.length}):</div>
+                                <div className="font-medium text-xs mb-1">提示词 ({mcpServerTools[server.id].prompts.length}):</div>
                                 <ul className="space-y-0.5">
                                   {mcpServerTools[server.id].prompts.map((prompt, i) => (
                                     <li key={i} className="flex items-start gap-1">
@@ -1158,7 +1158,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                             {(!mcpServerTools[server.id].tools || mcpServerTools[server.id].tools.length === 0) &&
                              (!mcpServerTools[server.id].resources || mcpServerTools[server.id].resources.length === 0) &&
                              (!mcpServerTools[server.id].prompts || mcpServerTools[server.id].prompts.length === 0) && (
-                              <div className="text-xs opacity-75">No tools, resources, or prompts discovered</div>
+                              <div className="text-xs opacity-75">未发现工具、资源或提示词</div>
                             )}
                           </div>
                         )}
@@ -1170,7 +1170,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                           variant="ghost"
                           size="sm"
                           className="text-gray-600 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
-                          title="Edit server"
+                          title="编辑服务器"
                         >
                           <Edit3 className="w-4 h-4" />
                         </Button>
@@ -1179,7 +1179,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                           variant="ghost"
                           size="sm"
                           className="text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300"
-                          title="Delete server"
+                          title="删除服务器"
                         >
                           <Trash2 className="w-4 h-4" />
                         </Button>
@@ -1189,7 +1189,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                 ))}
                 {mcpServers.length === 0 && (
                   <div className="text-center py-8 text-gray-500 dark:text-gray-400">
-                    No MCP servers configured
+                    未配置 MCP 服务器
                   </div>
                 )}
               </div>
@@ -1201,7 +1201,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                 <div className="bg-background border border-border rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto">
                   <div className="flex items-center justify-between p-4 border-b border-border">
                     <h3 className="text-lg font-medium text-foreground">
-                      {editingMcpServer ? 'Edit MCP Server' : 'Add MCP Server'}
+                      {editingMcpServer ? '编辑 MCP 服务器' : '添加 MCP 服务器'}
                     </h3>
                     <Button variant="ghost" size="sm" onClick={resetMcpForm}>
                       <X className="w-4 h-4" />
@@ -1221,7 +1221,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                             : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                         }`}
                       >
-                        Form Input
+                        表单输入
                       </button>
                       <button
                         type="button"
@@ -1232,7 +1232,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                             : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                         }`}
                       >
-                        JSON Import
+                        JSON 导入
                       </button>
                     </div>
                     )}
@@ -1241,12 +1241,12 @@ function Settings({ isOpen, onClose, projects = [] }) {
                     {mcpFormData.importMode === 'form' && editingMcpServer && (
                       <div className="bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-lg p-3">
                         <label className="block text-sm font-medium text-foreground mb-2">
-                          Scope
+                          作用域
                         </label>
                         <div className="flex items-center gap-2">
                           {mcpFormData.scope === 'user' ? <Globe className="w-4 h-4" /> : <FolderOpen className="w-4 h-4" />}
                           <span className="text-sm">
-                            {mcpFormData.scope === 'user' ? 'User (Global)' : 'Project (Local)'}
+                            {mcpFormData.scope === 'user' ? '用户（全局）' : '项目（本地）'}
                           </span>
                           {mcpFormData.scope === 'local' && mcpFormData.projectPath && (
                             <span className="text-xs text-muted-foreground">
@@ -1255,7 +1255,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                           )}
                         </div>
                         <p className="text-xs text-muted-foreground mt-2">
-                          Scope cannot be changed when editing an existing server
+                          编辑现有服务器时无法更改作用域
                         </p>
                       </div>
                     )}
@@ -1265,7 +1265,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                       <div className="space-y-4">
                         <div>
                           <label className="block text-sm font-medium text-foreground mb-2">
-                            Scope *
+                            作用域 *
                           </label>
                           <div className="flex gap-2">
                             <button
@@ -1279,7 +1279,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                             >
                               <div className="flex items-center justify-center gap-2">
                                 <Globe className="w-4 h-4" />
-                                <span>User (Global)</span>
+                                <span>用户（全局）</span>
                               </div>
                             </button>
                             <button
@@ -1293,14 +1293,14 @@ function Settings({ isOpen, onClose, projects = [] }) {
                             >
                               <div className="flex items-center justify-center gap-2">
                                 <FolderOpen className="w-4 h-4" />
-                                <span>Project (Local)</span>
+                                <span>项目（本地）</span>
                               </div>
                             </button>
                           </div>
                           <p className="text-xs text-muted-foreground mt-2">
-                            {mcpFormData.scope === 'user' 
-                              ? 'User scope: Available across all projects on your machine'
-                              : 'Local scope: Only available in the selected project'
+                            {mcpFormData.scope === 'user'
+                              ? '用户作用域：在您机器上的所有项目中可用'
+                              : '本地作用域：仅在所选项目中可用'
                             }
                           </p>
                         </div>
@@ -1309,7 +1309,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                         {mcpFormData.scope === 'local' && !editingMcpServer && (
                           <div>
                             <label className="block text-sm font-medium text-foreground mb-2">
-                              Project *
+                              项目 *
                             </label>
                             <select
                               value={mcpFormData.projectPath}
@@ -1317,7 +1317,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                               className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                               required={mcpFormData.scope === 'local'}
                             >
-                              <option value="">Select a project...</option>
+                              <option value="">选择一个项目...</option>
                               {projects.map(project => (
                                 <option key={project.name} value={project.path || project.fullPath}>
                                   {project.displayName || project.name}
@@ -1326,7 +1326,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                             </select>
                             {mcpFormData.projectPath && (
                               <p className="text-xs text-muted-foreground mt-1">
-                                Path: {mcpFormData.projectPath}
+                                路径：{mcpFormData.projectPath}
                               </p>
                             )}
                           </div>
@@ -1338,7 +1338,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className={mcpFormData.importMode === 'json' ? 'md:col-span-2' : ''}>
                         <label className="block text-sm font-medium text-foreground mb-2">
-                          Server Name *
+                          服务器名称 *
                         </label>
                         <Input
                           value={mcpFormData.name}
@@ -1353,7 +1353,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                       {mcpFormData.importMode === 'form' && (
                         <div>
                           <label className="block text-sm font-medium text-foreground mb-2">
-                            Transport Type *
+                            传输类型 *
                           </label>
                           <select
                             value={mcpFormData.type}
@@ -1375,7 +1375,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                     {editingMcpServer && mcpFormData.raw && mcpFormData.importMode === 'form' && (
                       <div className="bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-lg p-4">
                         <h4 className="text-sm font-medium text-foreground mb-2">
-                          Configuration Details (from {editingMcpServer.scope === 'global' ? '~/.claude.json' : 'project config'})
+                          配置详情（来自 {editingMcpServer.scope === 'global' ? '~/.claude.json' : '项目配置'}）
                         </h4>
                         <pre className="text-xs bg-gray-100 dark:bg-gray-800 p-3 rounded overflow-x-auto">
                           {JSON.stringify(mcpFormData.raw, null, 2)}
@@ -1388,7 +1388,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                       <div className="space-y-4">
                         <div>
                           <label className="block text-sm font-medium text-foreground mb-2">
-                            JSON Configuration *
+                            JSON 配置 *
                           </label>
                           <textarea
                             value={mcpFormData.jsonInput}
@@ -1426,7 +1426,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                             <p className="text-xs text-red-500 mt-1">{jsonValidationError}</p>
                           )}
                           <p className="text-xs text-muted-foreground mt-2">
-                            Paste your MCP server configuration in JSON format. Example formats:
+                            粘贴 JSON 格式的 MCP 服务器配置。示例格式：
                             <br />• stdio: {`{"type":"stdio","command":"npx","args":["@upstash/context7-mcp"]}`}
                             <br />• http/sse: {`{"type":"http","url":"https://api.example.com/mcp"}`}
                           </p>
@@ -1439,7 +1439,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                       <div className="space-y-4">
                         <div>
                           <label className="block text-sm font-medium text-foreground mb-2">
-                            Command *
+                            命令 *
                           </label>
                           <Input
                             value={mcpFormData.config.command}
@@ -1451,7 +1451,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                         
                         <div>
                           <label className="block text-sm font-medium text-foreground mb-2">
-                            Arguments (one per line)
+                            参数（每行一个）
                           </label>
                           <textarea
                             value={Array.isArray(mcpFormData.config.args) ? mcpFormData.config.args.join('\n') : ''}
@@ -1467,7 +1467,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                     {mcpFormData.importMode === 'form' && (mcpFormData.type === 'sse' || mcpFormData.type === 'http') && (
                       <div>
                         <label className="block text-sm font-medium text-foreground mb-2">
-                          URL *
+                          网址 *
                         </label>
                         <Input
                           value={mcpFormData.config.url}
@@ -1483,7 +1483,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                     {mcpFormData.importMode === 'form' && (
                       <div>
                       <label className="block text-sm font-medium text-foreground mb-2">
-                        Environment Variables (KEY=value, one per line)
+                        环境变量（KEY=value 格式，每行一个）
                       </label>
                       <textarea
                         value={Object.entries(mcpFormData.config.env || {}).map(([k, v]) => `${k}=${v}`).join('\n')}
@@ -1507,7 +1507,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                     {mcpFormData.importMode === 'form' && (mcpFormData.type === 'sse' || mcpFormData.type === 'http') && (
                       <div>
                         <label className="block text-sm font-medium text-foreground mb-2">
-                          Headers (KEY=value, one per line)
+                          请求头（KEY=value 格式，每行一个）
                         </label>
                         <textarea
                           value={Object.entries(mcpFormData.config.headers || {}).map(([k, v]) => `${k}=${v}`).join('\n')}
@@ -1531,14 +1531,14 @@ function Settings({ isOpen, onClose, projects = [] }) {
 
                     <div className="flex justify-end gap-2 pt-4">
                       <Button type="button" variant="outline" onClick={resetMcpForm}>
-                        Cancel
+                        取消
                       </Button>
                       <Button 
                         type="submit" 
                         disabled={mcpLoading} 
                         className="bg-purple-600 hover:bg-purple-700 disabled:opacity-50"
                       >
-                        {mcpLoading ? 'Saving...' : (editingMcpServer ? 'Update Server' : 'Add Server')}
+                        {mcpLoading ? '保存中...' : (editingMcpServer ? '更新服务器' : '添加服务器')}
                       </Button>
                     </div>
                   </form>
@@ -1557,7 +1557,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                   <div className="flex items-center gap-3">
                     <AlertTriangle className="w-5 h-5 text-orange-500" />
                     <h3 className="text-lg font-medium text-foreground">
-                      Cursor Permission Settings
+                      Cursor 权限设置
                     </h3>
                   </div>
                   <div className="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-lg p-4">
@@ -1570,10 +1570,10 @@ function Settings({ isOpen, onClose, projects = [] }) {
                       />
                       <div>
                         <div className="font-medium text-orange-900 dark:text-orange-100">
-                          Skip permission prompts (use with caution)
+                          跳过权限提示（谨慎使用）
                         </div>
                         <div className="text-sm text-orange-700 dark:text-orange-300">
-                          Equivalent to -f flag in Cursor CLI
+                          相当于 Cursor CLI 的 -f 标志
                         </div>
                       </div>
                     </label>
@@ -1592,10 +1592,10 @@ function Settings({ isOpen, onClose, projects = [] }) {
                     <div className="flex items-center justify-between">
                       <div>
                         <div className="font-medium text-purple-900 dark:text-purple-100">
-                          Cursor CLI Login
+                          Cursor CLI 登录
                         </div>
                         <div className="text-sm text-purple-700 dark:text-purple-300">
-                          Sign in to your Cursor account to enable AI features
+                          登录您的 Cursor 账户以启用 AI 功能
                         </div>
                       </div>
                       <Button
@@ -1615,11 +1615,11 @@ function Settings({ isOpen, onClose, projects = [] }) {
                   <div className="flex items-center gap-3">
                     <Shield className="w-5 h-5 text-green-500" />
                     <h3 className="text-lg font-medium text-foreground">
-                      Allowed Shell Commands
+                      允许的 Shell 命令
                     </h3>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Shell commands that are automatically allowed without prompting for permission
+                    无需提示即可自动允许的 Shell 命令
                   </p>
                   
                   <div className="flex flex-col sm:flex-row gap-2">
@@ -1650,14 +1650,14 @@ function Settings({ isOpen, onClose, projects = [] }) {
                       className="h-10 px-4 touch-manipulation"
                     >
                       <Plus className="w-4 h-4 mr-2 sm:mr-0" />
-                      <span className="sm:hidden">Add Command</span>
+                      <span className="sm:hidden">添加命令</span>
                     </Button>
                   </div>
 
                   {/* Common commands quick add */}
                   <div className="space-y-2">
                     <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                      Quick add common commands:
+                      快速添加常用命令：
                     </p>
                     <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
                       {commonCursorCommands.map(cmd => (
@@ -1697,7 +1697,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                     ))}
                     {cursorAllowedCommands.length === 0 && (
                       <div className="text-center py-8 text-gray-500 dark:text-gray-400">
-                        No allowed shell commands configured
+                        未配置允许的 Shell 命令
                       </div>
                     )}
                   </div>
@@ -1708,11 +1708,11 @@ function Settings({ isOpen, onClose, projects = [] }) {
                   <div className="flex items-center gap-3">
                     <Shield className="w-5 h-5 text-red-500" />
                     <h3 className="text-lg font-medium text-foreground">
-                      Disallowed Shell Commands
+                      禁止的 Shell 命令
                     </h3>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Shell commands that should always be denied
+                    应始终拒绝的 Shell 命令
                   </p>
                   
                   <div className="flex flex-col sm:flex-row gap-2">
@@ -1743,7 +1743,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                       className="h-10 px-4 touch-manipulation"
                     >
                       <Plus className="w-4 h-4 mr-2 sm:mr-0" />
-                      <span className="sm:hidden">Add Command</span>
+                      <span className="sm:hidden">添加命令</span>
                     </Button>
                   </div>
 
@@ -1765,7 +1765,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                     ))}
                     {cursorDisallowedCommands.length === 0 && (
                       <div className="text-center py-8 text-gray-500 dark:text-gray-400">
-                        No disallowed shell commands configured
+                        未配置禁止的 Shell 命令
                       </div>
                     )}
                   </div>
@@ -1774,13 +1774,13 @@ function Settings({ isOpen, onClose, projects = [] }) {
                 {/* Help Section */}
                 <div className="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-lg p-4">
                   <h4 className="font-medium text-purple-900 dark:text-purple-100 mb-2">
-                    Cursor Shell Command Examples:
+                    Cursor Shell 命令示例：
                   </h4>
                   <ul className="text-sm text-purple-800 dark:text-purple-200 space-y-1">
-                    <li><code className="bg-purple-100 dark:bg-purple-800 px-1 rounded">"Shell(ls)"</code> - Allow ls command</li>
-                    <li><code className="bg-purple-100 dark:bg-purple-800 px-1 rounded">"Shell(git status)"</code> - Allow git status command</li>
-                    <li><code className="bg-purple-100 dark:bg-purple-800 px-1 rounded">"Shell(mkdir)"</code> - Allow mkdir command</li>
-                    <li><code className="bg-purple-100 dark:bg-purple-800 px-1 rounded">"-f"</code> flag - Skip all permission prompts (dangerous)</li>
+                    <li><code className="bg-purple-100 dark:bg-purple-800 px-1 rounded">"Shell(ls)"</code> - 允许 ls 命令</li>
+                    <li><code className="bg-purple-100 dark:bg-purple-800 px-1 rounded">"Shell(git status)"</code> - 允许 git status 命令</li>
+                    <li><code className="bg-purple-100 dark:bg-purple-800 px-1 rounded">"Shell(mkdir)"</code> - 允许 mkdir 命令</li>
+                    <li><code className="bg-purple-100 dark:bg-purple-800 px-1 rounded">"-f"</code> 标志 - 跳过所有权限提示（危险）</li>
                   </ul>
                 </div>
               </div>
@@ -1796,7 +1796,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                   <div className="bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-lg p-4">
                     <div className="flex items-center gap-3">
                       <div className="animate-spin w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full"></div>
-                      <span className="text-sm text-muted-foreground">Checking TaskMaster installation...</span>
+                      <span className="text-sm text-muted-foreground">正在检查 TaskMaster 安装...</span>
                     </div>
                   </div>
                 ) : (
@@ -1812,10 +1812,10 @@ function Settings({ isOpen, onClose, projects = [] }) {
                           </div>
                           <div className="flex-1">
                             <div className="font-medium text-orange-900 dark:text-orange-100 mb-2">
-                              TaskMaster AI CLI Not Installed
+                              未安装 TaskMaster AI CLI
                             </div>
                             <div className="text-sm text-orange-800 dark:text-orange-200 space-y-3">
-                              <p>TaskMaster CLI is required to use task management features. Install it to get started:</p>
+                              <p>使用任务管理功能需要 TaskMaster CLI。安装以开始使用：</p>
                               
                               <div className="bg-orange-100 dark:bg-orange-900/50 rounded-lg p-3 font-mono text-sm">
                                 <code>npm install -g task-master-ai</code>
@@ -1828,19 +1828,19 @@ function Settings({ isOpen, onClose, projects = [] }) {
                                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
                                   </svg>
-                                  View on GitHub
+                                  在 GitHub 上查看
                                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                   </svg>
                                 </a>
                               </div>
-                              
+
                               <div className="space-y-2">
-                                <p className="font-medium">After installation:</p>
+                                <p className="font-medium">安装后：</p>
                                 <ol className="list-decimal list-inside space-y-1 text-xs">
-                                  <li>Restart this application</li>
-                                  <li>TaskMaster features will automatically become available</li>
-                                  <li>Use <code className="bg-orange-100 dark:bg-orange-800 px-1 rounded">task-master init</code> in your project directory</li>
+                                  <li>重启此应用程序</li>
+                                  <li>TaskMaster 功能将自动可用</li>
+                                  <li>在项目目录中使用 <code className="bg-orange-100 dark:bg-orange-800 px-1 rounded">task-master init</code></li>
                                 </ol>
                               </div>
                             </div>
@@ -1855,14 +1855,14 @@ function Settings({ isOpen, onClose, projects = [] }) {
                         <div className="flex items-center justify-between">
                           <div>
                             <div className="font-medium text-foreground">
-                              Enable TaskMaster Integration
+                              启用 TaskMaster 集成
                             </div>
                             <div className="text-sm text-muted-foreground mt-1">
-                              Show TaskMaster tasks, banners, and sidebar indicators across the interface
+                              在界面中显示 TaskMaster 任务、横幅和侧边栏指示器
                             </div>
                             {!isTaskMasterInstalled && (
                               <div className="text-xs text-orange-600 dark:text-orange-400 mt-1">
-                                TaskMaster CLI must be installed first
+                                必须先安装 TaskMaster CLI
                               </div>
                             )}
                           </div>
@@ -1887,13 +1887,13 @@ function Settings({ isOpen, onClose, projects = [] }) {
                       </div>
                       <div>
                         <div className="font-medium text-blue-900 dark:text-blue-100 mb-2">
-                          🎯 About TaskMaster AI
+                          🎯 关于 TaskMaster AI
                         </div>
                         <div className="text-sm text-blue-800 dark:text-blue-200 space-y-2">
-                          <p><strong>AI-Powered Task Management:</strong> Break complex projects into manageable subtasks with AI assistance</p>
-                          <p><strong>PRD:</strong> Generate structured tasks from Product Requirements Documents</p>
-                          <p><strong>Dependency Tracking:</strong> Understand task relationships and execution order</p>
-                          <p><strong>Progress Visualization:</strong> Kanban boards, and detailed task views</p>
+                          <p><strong>AI 驱动的任务管理：</strong>在 AI 辅助下将复杂项目分解为可管理的子任务</p>
+                          <p><strong>PRD：</strong>从产品需求文档生成结构化任务</p>
+                          <p><strong>依赖跟踪：</strong>了解任务关系和执行顺序</p>
+                          <p><strong>进度可视化：</strong>看板和详细任务视图</p>
                         </div>
                       </div>
                       
@@ -1907,10 +1907,10 @@ function Settings({ isOpen, onClose, projects = [] }) {
                           </div>
                           <div className="flex-1">
                             <div className="font-medium text-blue-900 dark:text-blue-100 mb-2">
-                              📚 Learn More & Tutorial
+                              📚 了解更多和教程
                             </div>
                             <div className="text-sm text-blue-800 dark:text-blue-200 space-y-2">
-                              <p>TaskMaster AI (aka <strong>claude-task-master</strong> ) is an advanced AI-powered task management system built for developers.</p>
+                              <p>TaskMaster AI（又名 <strong>claude-task-master</strong>）是一个为开发者打造的高级 AI 驱动任务管理系统。</p>
                               <div className="flex flex-col gap-2">
                                 <a 
                                   href="https://github.com/eyaltoledano/claude-task-master" 
@@ -1921,13 +1921,13 @@ function Settings({ isOpen, onClose, projects = [] }) {
                                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
                                   </svg>
-                                  View on GitHub
+                                  在 GitHub 上查看
                                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                   </svg>
                                 </a>
                                 <p className="text-xs text-blue-700 dark:text-blue-300">
-                                  Find documentation, setup guides, and examples for advanced TaskMaster workflows
+                                  查找文档、设置指南和高级 TaskMaster 工作流程示例
                                 </p>
                               </div>
                             </div>
@@ -1951,7 +1951,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                Settings saved successfully!
+                设置保存成功！
               </div>
             )}
             {saveStatus === 'error' && (
@@ -1959,7 +1959,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                 </svg>
-                Failed to save settings
+                保存设置失败
               </div>
             )}
           </div>
@@ -1970,7 +1970,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
               disabled={isSaving}
               className="flex-1 sm:flex-none h-10 touch-manipulation"
             >
-              Cancel
+              取消
             </Button>
             <Button 
               onClick={saveSettings} 
@@ -1980,10 +1980,10 @@ function Settings({ isOpen, onClose, projects = [] }) {
               {isSaving ? (
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
-                  Saving...
+                  保存中...
                 </div>
               ) : (
-                'Save Settings'
+                '保存设置'
               )}
             </Button>
           </div>
@@ -1996,7 +1996,7 @@ function Settings({ isOpen, onClose, projects = [] }) {
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-full max-w-4xl h-3/4 flex flex-col md:max-w-4xl md:h-3/4 md:rounded-lg md:m-4 max-md:max-w-none max-md:h-full max-md:rounded-none max-md:m-0">
             <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                {loginProvider === 'claude' ? 'Claude CLI Login' : 'Cursor CLI Login'}
+                {loginProvider === 'claude' ? 'Claude CLI 登录' : 'Cursor CLI 登录'}
               </h3>
               <button
                 onClick={() => setShowLoginModal(false)}

@@ -68,7 +68,7 @@ const NextTaskBanner = ({ onShowAllTasks, onStartTask, className = '' }) => {
             <List className="w-4 h-4 text-blue-600 dark:text-blue-400" />
             <div>
               <div className="text-sm font-medium text-gray-900 dark:text-white">
-                TaskMaster AI is not configured
+                TaskMaster AI 未配置
               </div>
               <div className="text-xs text-gray-600 dark:text-gray-400 mt-0.5">
               </div>
@@ -80,7 +80,7 @@ const NextTaskBanner = ({ onShowAllTasks, onStartTask, className = '' }) => {
               className="text-xs px-2 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded transition-colors flex items-center gap-1"
             >
               <Settings className="w-3 h-3" />
-              Initialize TaskMaster AI
+              初始化 TaskMaster AI
             </button>
           </div>
         </div>
@@ -90,14 +90,14 @@ const NextTaskBanner = ({ onShowAllTasks, onStartTask, className = '' }) => {
             {!projectTaskMaster?.hasTaskmaster && (
               <div className="mb-3 p-3 bg-blue-50 dark:bg-blue-900/50 rounded-lg">
                 <h4 className="text-sm font-medium text-blue-900 dark:text-blue-100 mb-2">
-                  🎯 What is TaskMaster?
+                  🎯 什么是 TaskMaster？
                 </h4>
                 <div className="text-xs text-blue-800 dark:text-blue-200 space-y-1">
-                  <p>• <strong>AI-Powered Task Management:</strong> Break complex projects into manageable subtasks</p>
-                  <p>• <strong>PRD Templates:</strong> Generate tasks from Product Requirements Documents</p>
-                  <p>• <strong>Dependency Tracking:</strong> Understand task relationships and execution order</p>
-                  <p>• <strong>Progress Visualization:</strong> Kanban boards and detailed task analytics</p>
-                  <p>• <strong>CLI Integration:</strong> Use taskmaster commands for advanced workflows</p>
+                  <p>• <strong>AI 驱动的任务管理：</strong> 将复杂项目分解为可管理的子任务</p>
+                  <p>• <strong>PRD 模板：</strong> 从产品需求文档生成任务</p>
+                  <p>• <strong>依赖关系跟踪：</strong> 了解任务关系和执行顺序</p>
+                  <p>• <strong>进度可视化：</strong> 看板和详细的任务分析</p>
+                  <p>• <strong>CLI 集成：</strong> 使用 taskmaster 命令进行高级工作流</p>
                 </div>
               </div>
             )}
@@ -108,12 +108,12 @@ const NextTaskBanner = ({ onShowAllTasks, onStartTask, className = '' }) => {
                   onClick={() => setShowCLI(true)}
                 >
                   <Terminal className="w-3 h-3" />
-                  Initialize TaskMaster
+                  初始化 TaskMaster
                 </button>
               ) : (
                 <>
                   <div className="mb-2 p-2 bg-green-50 dark:bg-green-900/30 rounded text-xs text-green-800 dark:text-green-200">
-                    <strong>Add more tasks:</strong> Create additional tasks manually or generate them from a PRD template
+                    <strong>添加更多任务：</strong> 手动创建其他任务或从 PRD 模板生成
                   </div>
                   <button
                     className="text-xs px-3 py-2 bg-green-100 dark:bg-green-900 hover:bg-green-200 dark:hover:bg-green-800 text-green-800 dark:text-green-200 rounded transition-colors text-left flex items-center gap-2 disabled:opacity-50"
@@ -121,7 +121,7 @@ const NextTaskBanner = ({ onShowAllTasks, onStartTask, className = '' }) => {
                     disabled={isLoading}
                   >
                     <Plus className="w-3 h-3" />
-                    Create a new task manually
+                    手动创建新任务
                   </button>
                   <button
                     className="text-xs px-3 py-2 bg-purple-100 dark:bg-purple-900 hover:bg-purple-200 dark:hover:bg-purple-800 text-purple-800 dark:text-purple-200 rounded transition-colors text-left flex items-center gap-2 disabled:opacity-50"
@@ -129,7 +129,7 @@ const NextTaskBanner = ({ onShowAllTasks, onStartTask, className = '' }) => {
                     disabled={isLoading}
                   >
                     <FileText className="w-3 h-3" />
-                    {isLoading ? 'Parsing...' : 'Generate tasks from PRD template'}
+                    {isLoading ? '解析中...' : '从 PRD 模板生成任务'}
                   </button>
                 </>
               )}
@@ -179,12 +179,12 @@ const NextTaskBanner = ({ onShowAllTasks, onStartTask, className = '' }) => {
               className="text-xs px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors shadow-sm flex items-center gap-1"
             >
               <Play className="w-3 h-3" />
-              Start Task
+              开始任务
             </button>
             <button
               onClick={() => setShowTaskDetail(true)}
               className="text-xs px-2 py-1.5 border border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-md transition-colors flex items-center gap-1"
-              title="View task details"
+              title="查看任务详情"
             >
               <Eye className="w-3 h-3" />
             </button>
@@ -192,7 +192,7 @@ const NextTaskBanner = ({ onShowAllTasks, onStartTask, className = '' }) => {
               <button
                 onClick={onShowAllTasks}
                 className="text-xs px-2 py-1.5 border border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-md transition-colors flex items-center gap-1"
-                title="View all tasks"
+                title="查看所有任务"
               >
                 <List className="w-3 h-3" />
               </button>
@@ -216,7 +216,7 @@ const NextTaskBanner = ({ onShowAllTasks, onStartTask, className = '' }) => {
         <div className="flex items-center gap-2">
           <CheckCircle className="w-4 h-4 text-purple-600 dark:text-purple-400" />
           <span className="text-sm font-medium text-gray-900 dark:text-white">
-            {completedTasks === totalTasks ? "All done! 🎉" : "No pending tasks"}
+            {completedTasks === totalTasks ? "全部完成！🎉" : "没有待处理任务"}
           </span>
         </div>
         <div className="flex items-center gap-2">
@@ -227,7 +227,7 @@ const NextTaskBanner = ({ onShowAllTasks, onStartTask, className = '' }) => {
             onClick={onShowAllTasks}
             className="text-xs px-2 py-1 bg-purple-600 hover:bg-purple-700 text-white rounded transition-colors"
           >
-            Review
+            查看
           </button>
         </div>
       </div>
@@ -277,8 +277,8 @@ const NextTaskBanner = ({ onShowAllTasks, onStartTask, className = '' }) => {
                   <Terminal className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-semibold text-gray-900 dark:text-white">TaskMaster Setup</h2>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Interactive CLI for {currentProject?.displayName}</p>
+                  <h2 className="text-lg font-semibold text-gray-900 dark:text-white">TaskMaster 设置</h2>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{currentProject?.displayName} 的交互式 CLI</p>
                 </div>
               </div>
               <button
@@ -306,13 +306,13 @@ const NextTaskBanner = ({ onShowAllTasks, onStartTask, className = '' }) => {
             <div className="p-4 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
               <div className="flex items-center justify-between">
                 <div className="text-sm text-gray-600 dark:text-gray-400">
-                  TaskMaster initialization will start automatically
+                  TaskMaster 初始化将自动开始
                 </div>
                 <button
                   onClick={() => setShowCLI(false)}
                   className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
                 >
-                  Close
+                  关闭
                 </button>
               </div>
             </div>
@@ -376,7 +376,7 @@ const CreateTaskModal = ({ currentProject, onClose, onTaskCreated }) => {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
       <div className="bg-white dark:bg-gray-800 rounded-lg p-6 w-full max-w-md">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Create New Task</h3>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">创建新任务</h3>
           <button
             onClick={onClose}
             className="p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded"
@@ -393,21 +393,21 @@ const CreateTaskModal = ({ currentProject, onClose, onTaskCreated }) => {
                 checked={formData.useAI}
                 onChange={(e) => setFormData(prev => ({ ...prev, useAI: e.target.checked }))}
               />
-              Use AI to generate task details
+              使用 AI 生成任务详情
             </label>
           </div>
 
           {formData.useAI ? (
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Task Description (AI will generate details)
+                任务描述（AI 将生成详情）
               </label>
               <textarea
                 value={formData.prompt}
                 onChange={(e) => setFormData(prev => ({ ...prev, prompt: e.target.value }))}
                 className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
                 rows="3"
-                placeholder="Describe what you want to accomplish..."
+                placeholder="描述您想要完成的内容..."
                 required
               />
             </div>
@@ -415,28 +415,28 @@ const CreateTaskModal = ({ currentProject, onClose, onTaskCreated }) => {
             <>
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Task Title
+                  任务标题
                 </label>
                 <input
                   type="text"
                   value={formData.title}
                   onChange={(e) => setFormData(prev => ({ ...prev, title: e.target.value }))}
                   className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
-                  placeholder="Enter task title..."
+                  placeholder="输入任务标题..."
                   required
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Description
+                  描述
                 </label>
                 <textarea
                   value={formData.description}
                   onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
                   className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
                   rows="3"
-                  placeholder="Describe the task..."
+                  placeholder="描述任务..."
                   required
                 />
               </div>
@@ -445,16 +445,16 @@ const CreateTaskModal = ({ currentProject, onClose, onTaskCreated }) => {
 
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Priority
+              优先级
             </label>
             <select
               value={formData.priority}
               onChange={(e) => setFormData(prev => ({ ...prev, priority: e.target.value }))}
               className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
             >
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
+              <option value="low">低</option>
+              <option value="medium">中</option>
+              <option value="high">高</option>
             </select>
           </div>
 
@@ -465,14 +465,14 @@ const CreateTaskModal = ({ currentProject, onClose, onTaskCreated }) => {
               className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
               disabled={isSubmitting}
             >
-              Cancel
+              取消
             </button>
             <button
               type="submit"
               className="flex-1 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded disabled:opacity-50"
               disabled={isSubmitting || (formData.useAI && !formData.prompt.trim()) || (!formData.useAI && (!formData.title.trim() || !formData.description.trim()))}
             >
-              {isSubmitting ? 'Creating...' : 'Create Task'}
+              {isSubmitting ? '创建中...' : '创建任务'}
             </button>
           </div>
         </form>
@@ -582,9 +582,9 @@ const TemplateSelector = ({ currentProject, onClose, onTemplateApplied }) => {
       <div className="bg-white dark:bg-gray-800 rounded-lg p-6 w-full max-w-2xl max-h-[80vh] overflow-y-auto">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-            {step === 'select' ? 'Select PRD Template' : 
-             step === 'customize' ? 'Customize Template' : 
-             'Generating Tasks'}
+            {step === 'select' ? '选择 PRD 模板' :
+             step === 'customize' ? '自定义模板' :
+             '生成任务中'}
           </h3>
           <button
             onClick={onClose}
@@ -621,7 +621,7 @@ const TemplateSelector = ({ currentProject, onClose, onTemplateApplied }) => {
           <div className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                File Name
+                文件名
               </label>
               <input
                 type="text"
@@ -635,7 +635,7 @@ const TemplateSelector = ({ currentProject, onClose, onTemplateApplied }) => {
             {Object.keys(customizations).length > 0 && (
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Customize Template
+                  自定义模板
                 </label>
                 <div className="space-y-3">
                   {Object.entries(customizations).map(([key, value]) => (
@@ -661,14 +661,14 @@ const TemplateSelector = ({ currentProject, onClose, onTemplateApplied }) => {
                 onClick={() => setStep('select')}
                 className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300"
               >
-                Back
+                返回
               </button>
               <button
                 onClick={handleApplyTemplate}
                 className="flex-1 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded disabled:opacity-50"
                 disabled={isApplying}
               >
-                {isApplying ? 'Applying...' : 'Apply & Generate Tasks'}
+                {isApplying ? '应用中...' : '应用并生成任务'}
               </button>
             </div>
           </div>
@@ -680,10 +680,10 @@ const TemplateSelector = ({ currentProject, onClose, onTemplateApplied }) => {
               <CheckCircle className="w-8 h-8 text-green-600 dark:text-green-400" />
             </div>
             <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
-              Template Applied Successfully!
+              模板应用成功！
             </h4>
             <p className="text-gray-600 dark:text-gray-400">
-              Your PRD has been created and tasks are being generated...
+              您的 PRD 已创建，任务正在生成中...
             </p>
           </div>
         )}

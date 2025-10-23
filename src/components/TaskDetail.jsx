@@ -113,12 +113,12 @@ const TaskDetail = ({
   };
 
   const statusOptions = [
-    { value: 'pending', label: 'Pending' },
-    { value: 'in-progress', label: 'In Progress' },
-    { value: 'review', label: 'Review' },
-    { value: 'done', label: 'Done' },
-    { value: 'deferred', label: 'Deferred' },
-    { value: 'cancelled', label: 'Cancelled' }
+    { value: 'pending', label: '待处理' },
+    { value: 'in-progress', label: '进行中' },
+    { value: 'review', label: '审核中' },
+    { value: 'done', label: '已完成' },
+    { value: 'deferred', label: '已延期' },
+    { value: 'cancelled', label: '已取消' }
   ];
 
   return (
@@ -137,14 +137,14 @@ const TaskDetail = ({
                 <button
                   onClick={copyTaskId}
                   className="flex items-center gap-1 px-2 py-1 text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-                  title="Click to copy task ID"
+                  title="点击复制任务 ID"
                 >
-                  <span>Task {task.id}</span>
+                  <span>任务 {task.id}</span>
                   <Copy className="w-3 h-3" />
                 </button>
                 {task.parentId && (
                   <span className="text-xs text-gray-500 dark:text-gray-400">
-                    Subtask of Task {task.parentId}
+                    任务 {task.parentId} 的子任务
                   </span>
                 )}
               </div>
@@ -154,7 +154,7 @@ const TaskDetail = ({
                   value={editedTask.title || ''}
                   onChange={(e) => setEditedTask({ ...editedTask, title: e.target.value })}
                   className="w-full text-lg font-semibold bg-transparent border-b-2 border-blue-500 focus:outline-none text-gray-900 dark:text-white"
-                  placeholder="Task title"
+                  placeholder="任务标题"
                 />
               ) : (
                 <h1 className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white line-clamp-2">
@@ -171,7 +171,7 @@ const TaskDetail = ({
                   onClick={handleSave}
                   disabled={isSaving}
                   className="p-2 text-green-600 hover:text-green-700 hover:bg-green-50 dark:hover:bg-green-950 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  title={isSaving ? "Saving..." : "Save changes"}
+                  title={isSaving ? "保存中..." : "保存更改"}
                 >
                   <Save className={cn("w-5 h-5", isSaving && "animate-spin")} />
                 </button>
@@ -182,7 +182,7 @@ const TaskDetail = ({
                   }}
                   disabled={isSaving}
                   className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                  title="Cancel editing"
+                  title="取消编辑"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -191,16 +191,16 @@ const TaskDetail = ({
               <button
                 onClick={() => setEditMode(true)}
                 className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
-                title="Edit task"
+                title="编辑任务"
               >
                 <Edit className="w-5 h-5" />
               </button>
             )}
-            
+
             <button
               onClick={onClose}
               className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
-              title="Close"
+              title="关闭"
             >
               <X className="w-5 h-5" />
             </button>
@@ -213,7 +213,7 @@ const TaskDetail = ({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Status */}
             <div className="space-y-2">
-              <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Status</label>
+              <label className="text-sm font-medium text-gray-700 dark:text-gray-300">状态</label>
               <div className={cn(
                 'w-full px-3 py-2 rounded-md border border-gray-300 dark:border-gray-600',
                 statusConfig.bg,
@@ -230,28 +230,28 @@ const TaskDetail = ({
 
             {/* Priority */}
             <div className="space-y-2">
-              <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Priority</label>
+              <label className="text-sm font-medium text-gray-700 dark:text-gray-300">优先级</label>
               <div className={cn(
                 'px-3 py-2 rounded-md text-sm font-medium capitalize',
                 getPriorityColor(task.priority)
               )}>
                 <Flag className="w-4 h-4 inline mr-2" />
-                {task.priority || 'Not set'}
+                {task.priority === 'high' ? '高' : task.priority === 'medium' ? '中' : task.priority === 'low' ? '低' : '未设置'}
               </div>
             </div>
 
             {/* Dependencies */}
             <div className="space-y-2">
-              <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Dependencies</label>
+              <label className="text-sm font-medium text-gray-700 dark:text-gray-300">依赖项</label>
               {task.dependencies && task.dependencies.length > 0 ? (
                 <div className="flex flex-wrap gap-1">
                   {task.dependencies.map(depId => (
-                    <button 
-                      key={depId} 
+                    <button
+                      key={depId}
                       onClick={() => onTaskClick && onTaskClick({ id: depId })}
                       className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded text-sm hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors cursor-pointer disabled:cursor-default disabled:opacity-50"
                       disabled={!onTaskClick}
-                      title={onTaskClick ? `Click to view Task ${depId}` : `Task ${depId}`}
+                      title={onTaskClick ? `点击查看任务 ${depId}` : `任务 ${depId}`}
                     >
                       <ArrowRight className="w-3 h-3 inline mr-1" />
                       {depId}
@@ -259,25 +259,25 @@ const TaskDetail = ({
                   ))}
                 </div>
               ) : (
-                <span className="text-gray-500 dark:text-gray-400 text-sm">No dependencies</span>
+                <span className="text-gray-500 dark:text-gray-400 text-sm">无依赖项</span>
               )}
             </div>
           </div>
 
           {/* Description */}
           <div className="space-y-2">
-            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Description</label>
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">描述</label>
             {editMode ? (
               <textarea
                 value={editedTask.description || ''}
                 onChange={(e) => setEditedTask({ ...editedTask, description: e.target.value })}
                 rows={3}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-                placeholder="Task description"
+                placeholder="任务描述"
               />
             ) : (
               <p className="text-gray-700 dark:text-gray-300 whitespace-pre-wrap">
-                {task.description || 'No description provided'}
+                {task.description || '未提供描述'}
               </p>
             )}
           </div>
@@ -290,7 +290,7 @@ const TaskDetail = ({
                 className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
               >
                 <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                  Implementation Details
+                  实现细节
                 </span>
                 {showDetails ? (
                   <ChevronDown className="w-4 h-4 text-gray-500" />
@@ -306,7 +306,7 @@ const TaskDetail = ({
                       onChange={(e) => setEditedTask({ ...editedTask, details: e.target.value })}
                       rows={4}
                       className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
-                      placeholder="Implementation details"
+                      placeholder="实现细节"
                     />
                   ) : (
                     <div className="bg-gray-50 dark:bg-gray-800 rounded-md p-4">
@@ -328,7 +328,7 @@ const TaskDetail = ({
                 className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
               >
                 <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                  Test Strategy
+                  测试策略
                 </span>
                 {showTestStrategy ? (
                   <ChevronDown className="w-4 h-4 text-gray-500" />
@@ -352,7 +352,7 @@ const TaskDetail = ({
           {task.subtasks && task.subtasks.length > 0 && (
             <div className="space-y-3">
               <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                Subtasks ({task.subtasks.length})
+                子任务 ({task.subtasks.length})
               </label>
               <div className="space-y-2">
                 {task.subtasks.map(subtask => {
@@ -386,15 +386,15 @@ const TaskDetail = ({
         {/* Footer */}
         <div className="flex items-center justify-between p-4 md:p-6 border-t border-gray-200 dark:border-gray-700 flex-shrink-0">
           <div className="text-sm text-gray-500 dark:text-gray-400">
-            Task ID: {task.id}
+            任务 ID: {task.id}
           </div>
-          
+
           <div className="flex items-center gap-2">
             <button
               onClick={onClose}
               className="px-4 py-2 text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition-colors"
             >
-              Close
+              关闭
             </button>
           </div>
         </div>

@@ -12,7 +12,7 @@ const CreateTaskModal = ({ currentProject, onClose, onTaskCreated }) => {
             <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/50 rounded-lg flex items-center justify-center">
               <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Create AI-Generated Task</h3>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">创建 AI 生成的任务</h3>
           </div>
           <button
             onClick={onClose}
@@ -32,23 +32,23 @@ const CreateTaskModal = ({ currentProject, onClose, onTaskCreated }) => {
               </div>
               <div className="flex-1">
                 <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">
-                  💡 Pro Tip: Ask Claude Code Directly!
+                  💡 提示：直接询问 Claude Code!
                 </h4>
                 <p className="text-sm text-blue-800 dark:text-blue-200 mb-3">
-                  You can simply ask Claude Code in the chat to create tasks for you. 
-                  The AI assistant will automatically generate detailed tasks with research-backed insights.
+                  你可以直接在聊天中询问 Claude Code 为你创建任务。
+                  AI 助手将自动生成详细的任务,包含基于研究的深入见解。
                 </p>
-                
+
                 <div className="bg-white dark:bg-gray-800 rounded border border-blue-200 dark:border-blue-700 p-3 mb-3">
-                  <p className="text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Example:</p>
+                  <p className="text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">示例:</p>
                   <p className="text-sm text-gray-900 dark:text-white font-mono">
-                    "Please add a new task to implement user profile image uploads using Cloudinary, research the best approach."
+                    "请添加一个新任务,使用 Cloudinary 实现用户头像上传功能,研究最佳方案。"
                   </p>
                 </div>
-                
+
                 <p className="text-xs text-blue-700 dark:text-blue-300">
-                  <strong>This runs:</strong> <code className="bg-blue-100 dark:bg-blue-900/50 px-1 rounded text-xs">
-                    task-master add-task --prompt="Implement user profile image uploads using Cloudinary" --research
+                  <strong>这会运行:</strong> <code className="bg-blue-100 dark:bg-blue-900/50 px-1 rounded text-xs">
+                    task-master add-task --prompt="实现用户头像上传功能,使用 Cloudinary" --research
                   </code>
                 </p>
               </div>
@@ -58,7 +58,7 @@ const CreateTaskModal = ({ currentProject, onClose, onTaskCreated }) => {
           {/* Learn More Link */}
           <div className="text-center pt-4 border-t border-gray-200 dark:border-gray-700">
             <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
-              For more examples and advanced usage patterns:
+              查看更多示例和高级使用方法:
             </p>
             <a
               href="https://github.com/eyaltoledano/claude-task-master/blob/main/docs/examples.md"
@@ -66,7 +66,7 @@ const CreateTaskModal = ({ currentProject, onClose, onTaskCreated }) => {
               rel="noopener noreferrer"
               className="inline-block text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 underline font-medium"
             >
-              View TaskMaster Documentation →
+              查看 TaskMaster 文档 →
             </a>
           </div>
 
@@ -76,7 +76,7 @@ const CreateTaskModal = ({ currentProject, onClose, onTaskCreated }) => {
               onClick={onClose}
               className="w-full px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
             >
-              Got it, I'll ask Claude Code directly
+              知道了,我会直接询问 Claude Code
             </button>
           </div>
         </div>

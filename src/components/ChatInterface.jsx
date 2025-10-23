@@ -66,7 +66,7 @@ function formatUsageLimitText(text) {
       const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
       const dateReadable = `${reset.getDate()} ${months[reset.getMonth()]} ${reset.getFullYear()}`;
 
-      return `Claude usage limit reached. Your limit will reset at **${timeStr} ${tzHuman}** - ${dateReadable}`;
+      return `Claude 使用限额已达上限。限额将在 **${timeStr} ${tzHuman}** 重置 - ${dateReadable}`;
     });
   } catch {
     return text;
@@ -250,7 +250,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                 </div>
               )}
               <div className="text-sm font-medium text-gray-900 dark:text-white">
-                {message.type === 'error' ? 'Error' : message.type === 'tool' ? 'Tool' : ((localStorage.getItem('selected-provider') || 'claude') === 'cursor' ? 'Cursor' : 'Claude')}
+                {message.type === 'error' ? '错误' : message.type === 'tool' ? '工具' : ((localStorage.getItem('selected-provider') || 'claude') === 'cursor' ? 'Cursor' : 'Claude')}
               </div>
             </div>
           )}
@@ -268,7 +268,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                       </svg>
                     </div>
                     <span className="font-medium text-blue-900 dark:text-blue-100">
-                      Using {message.toolName}
+                      使用 {message.toolName}
                     </span>
                     <span className="text-xs text-blue-600 dark:text-blue-400 font-mono">
                       {message.toolId}
@@ -281,7 +281,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                         onShowSettings();
                       }}
                       className="p-1 rounded hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors"
-                      title="Tool Settings"
+                      title="工具设置"
                     >
                       <svg className="w-4 h-4 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
@@ -300,7 +300,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                             <svg className="w-4 h-4 transition-transform details-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                             </svg>
-                            📝 View edit diff for 
+                            查看编辑差异 
                             <button 
                               onClick={(e) => {
                                 e.preventDefault();
@@ -328,7 +328,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                                   {input.file_path}
                                 </button>
                                 <span className="text-xs text-gray-500 dark:text-gray-400">
-                                  Diff
+                                  差异
                                 </span>
                               </div>
                               <div className="text-xs font-mono">
@@ -355,7 +355,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                             {showRawParameters && (
                               <details className="mt-2" open={autoExpandTools}>
                                 <summary className="text-xs text-blue-600 dark:text-blue-400 cursor-pointer hover:text-blue-700 dark:hover:text-blue-300">
-                                  View raw parameters
+                                  查看原始参数
                                 </summary>
                                 <pre className="mt-2 text-xs bg-blue-100 dark:bg-blue-800/30 p-2 rounded whitespace-pre-wrap break-words overflow-hidden text-blue-900 dark:text-blue-100">
                                   {message.toolInput}
@@ -372,7 +372,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                   return (
                     <details className="mt-2" open={autoExpandTools}>
                       <summary className="text-sm text-blue-700 dark:text-blue-300 cursor-pointer hover:text-blue-800 dark:hover:text-blue-200">
-                        View input parameters
+                        查看输入参数
                       </summary>
                       <pre className="mt-2 text-xs bg-blue-100 dark:bg-blue-800/30 p-2 rounded whitespace-pre-wrap break-words overflow-hidden text-blue-900 dark:text-blue-100">
                         {message.toolInput}
@@ -402,7 +402,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                               <svg className="w-4 h-4 transition-transform details-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                               </svg>
-                              📄 Creating new file: 
+                              创建新文件: 
                               <button 
                                 onClick={(e) => {
                                   e.preventDefault();
@@ -430,7 +430,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                                     {input.file_path}
                                   </button>
                                   <span className="text-xs text-gray-500 dark:text-gray-400">
-                                    New File
+                                    新建文件
                                   </span>
                                 </div>
                                 <div className="text-xs font-mono">
@@ -484,7 +484,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                               <svg className="w-4 h-4 transition-transform details-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                               </svg>
-                              Updating Todo List
+                              更新待办列表
                             </summary>
                             <div className="mt-3">
                               <TodoList todos={input.todos} />
@@ -517,7 +517,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                             <svg className="w-4 h-4 transition-transform details-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                             </svg>
-                            Running command
+                            运行命令
                           </summary>
                           <div className="mt-3 space-y-2">
                             <div className="bg-gray-900 dark:bg-gray-950 text-gray-100 rounded-lg p-3 font-mono text-sm">
@@ -525,7 +525,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
-                                <span className="text-xs">Terminal</span>
+                                <span className="text-xs">终端</span>
                               </div>
                               <div className="whitespace-pre-wrap break-all text-green-400">
                                 $ {input.command}
@@ -539,7 +539,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                             {showRawParameters && (
                               <details className="mt-2">
                                 <summary className="text-xs text-blue-600 dark:text-blue-400 cursor-pointer hover:text-blue-700 dark:hover:text-blue-300">
-                                  View raw parameters
+                                  查看原始参数
                                 </summary>
                                 <pre className="mt-2 text-xs bg-blue-100 dark:bg-blue-800/30 p-2 rounded whitespace-pre-wrap break-words overflow-hidden text-blue-900 dark:text-blue-100">
                                   {message.toolInput}
@@ -563,7 +563,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                         
                         return (
                           <div className="mt-2 text-sm text-blue-700 dark:text-blue-300">
-                            Read{' '}
+                            读取{' '}
                             <button 
                               onClick={() => onFileOpen && onFileOpen(input.file_path)}
                               className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 underline font-mono"
@@ -591,7 +591,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                               <svg className="w-4 h-4 transition-transform details-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                               </svg>
-                              📋 View implementation plan
+                              查看实施计划
                             </summary>
                             <div className="mt-3 prose prose-sm max-w-none dark:prose-invert">
                               <ReactMarkdown>{planContent}</ReactMarkdown>
@@ -611,7 +611,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                         <svg className="w-4 h-4 transition-transform details-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
-                        View input parameters
+                        查看输入参数
                       </summary>
                       <pre className="mt-2 text-xs bg-blue-100 dark:bg-blue-800/30 p-2 rounded whitespace-pre-wrap break-words overflow-hidden text-blue-900 dark:text-blue-100">
                         {message.toolInput}
@@ -642,7 +642,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                           ? 'text-red-700 dark:text-red-300' 
                           : 'text-green-700 dark:text-green-300'
                       }`}>
-                        {message.toolResult.isError ? 'Tool Error' : 'Tool Result'}
+                        {message.toolResult.isError ? '工具错误' : '工具结果'}
                       </span>
                     </div>
                     
@@ -669,7 +669,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                               return (
                                 <div>
                                   <div className="flex items-center gap-2 mb-2">
-                                    <span className="font-medium">Todo list has been updated successfully</span>
+                                    <span className="font-medium">待办列表已成功更新</span>
                                   </div>
                                 </div>
                               );
@@ -679,7 +679,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                               return (
                                 <div>
                                   <div className="flex items-center gap-2 mb-3">
-                                    <span className="font-medium">Current Todo List</span>
+                                    <span className="font-medium">当前待办列表</span>
                                   </div>
                                   <TodoList todos={todos} isResult={true} />
                                 </div>
@@ -701,7 +701,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                               return (
                                 <div>
                                   <div className="flex items-center gap-2 mb-3">
-                                    <span className="font-medium">Implementation Plan</span>
+                                    <span className="font-medium">实施计划</span>
                                   </div>
                                   <div className="prose prose-sm max-w-none dark:prose-invert">
                                     <ReactMarkdown>{planContent}</ReactMarkdown>
@@ -756,7 +756,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                                   </div>
                                   <div className="flex-1">
                                     <h4 className="font-semibold text-amber-900 dark:text-amber-100 text-base mb-2">
-                                      Interactive Prompt
+                                      交互式提示
                                     </h4>
                                     <p className="text-sm text-amber-800 dark:text-amber-200 mb-4">
                                       {questionLine}
@@ -800,10 +800,10 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                                     {selectedOption && (
                                       <div className="bg-amber-100 dark:bg-amber-800/30 rounded-lg p-3">
                                         <p className="text-amber-900 dark:text-amber-100 text-sm font-medium mb-1">
-                                          ✓ Claude selected option {selectedOption}
+                                          ✓ Claude 选择了选项 {selectedOption}
                                         </p>
                                         <p className="text-amber-800 dark:text-amber-200 text-xs">
-                                          In the CLI, you would select this option interactively using arrow keys or by typing the number.
+                                          在 CLI 中,您可以使用箭头键或输入数字进行交互式选择。
                                         </p>
                                       </div>
                                     )}
@@ -819,7 +819,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                           return (
                             <div>
                               <div className="flex items-center gap-2 mb-2">
-                                <span className="font-medium">File updated successfully</span>
+                                <span className="font-medium">文件已成功更新</span>
                               </div>
                               <button 
                                 onClick={() => onFileOpen && onFileOpen(fileEditMatch[1])}
@@ -837,7 +837,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                           return (
                             <div>
                               <div className="flex items-center gap-2 mb-2">
-                                <span className="font-medium">File created successfully</span>
+                                <span className="font-medium">文件已成功创建</span>
                               </div>
                               <button 
                                 onClick={() => onFileOpen && onFileOpen(fileCreateMatch[1])}
@@ -859,10 +859,10 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                <span className="font-medium">File written successfully</span>
+                                <span className="font-medium">文件写入成功</span>
                               </div>
                               <p className="text-xs mt-1 text-green-600 dark:text-green-400">
-                                The file content is displayed in the diff view above
+                                文件内容显示在上方的差异视图中
                               </p>
                             </div>
                           );
@@ -875,7 +875,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                                 <svg className="w-4 h-4 transition-transform details-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                 </svg>
-                                View file content
+                                查看文件内容
                               </summary>
                               <div className="mt-2 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
                                 <div className="text-xs font-mono p-3 whitespace-pre-wrap break-words overflow-hidden">
@@ -893,7 +893,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                                 <svg className="w-4 h-4 transition-transform details-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                 </svg>
-                                View full output ({content.length} chars)
+                                查看完整输出 ({content.length} 字符)
                               </summary>
                               <div className="mt-2 prose prose-sm max-w-none prose-green dark:prose-invert">
                                 <ReactMarkdown>{content}</ReactMarkdown>
@@ -923,7 +923,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                   </div>
                   <div className="flex-1">
                     <h4 className="font-semibold text-amber-900 dark:text-amber-100 text-base mb-3">
-                      Interactive Prompt
+                      交互式提示
                     </h4>
                     {(() => {
                       const lines = message.content.split('\n').filter(line => line.trim());
@@ -983,10 +983,10 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                           
                           <div className="bg-amber-100 dark:bg-amber-800/30 rounded-lg p-3">
                             <p className="text-amber-900 dark:text-amber-100 text-sm font-medium mb-1">
-                              ⏳ Waiting for your response in the CLI
+                              ⏳ 等待您在 CLI 中的响应
                             </p>
                             <p className="text-amber-800 dark:text-amber-200 text-xs">
-                              Please select an option in your terminal where Claude is running.
+                              请在运行 Claude 的终端中选择一个选项。
                             </p>
                           </div>
                         </>
@@ -1004,7 +1004,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                     const filename = input.file_path.split('/').pop();
                     return (
                       <div className="bg-blue-50 dark:bg-blue-900/20 border-l-2 border-blue-300 dark:border-blue-600 pl-3 py-1 mb-2 text-sm text-blue-700 dark:text-blue-300">
-                        📖 Read{' '}
+                        📖 读取{' '}
                         <button 
                           onClick={() => onFileOpen && onFileOpen(input.file_path)}
                           className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 underline font-mono"
@@ -1017,7 +1017,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                 } catch (e) {
                   return (
                     <div className="bg-blue-50 dark:bg-blue-900/20 border-l-2 border-blue-300 dark:border-blue-600 pl-3 py-1 mb-2 text-sm text-blue-700 dark:text-blue-300">
-                      📖 Read file
+                      📖 读取文件
                     </div>
                   );
                 }
@@ -1031,7 +1031,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                     return (
                       <div className="bg-blue-50 dark:bg-blue-900/20 border-l-2 border-blue-300 dark:border-blue-600 pl-3 py-1 mb-2">
                         <div className="text-sm text-blue-700 dark:text-blue-300 mb-2">
-                          📝 Update todo list
+                          📝 更新待办列表
                         </div>
                         <TodoList todos={input.todos} />
                       </div>
@@ -1040,7 +1040,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                 } catch (e) {
                   return (
                     <div className="bg-blue-50 dark:bg-blue-900/20 border-l-2 border-blue-300 dark:border-blue-600 pl-3 py-1 mb-2 text-sm text-blue-700 dark:text-blue-300">
-                      📝 Update todo list
+                      📝 更新待办列表
                     </div>
                   );
                 }
@@ -1048,7 +1048,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
             ) : message.isToolUse && message.toolName === 'TodoRead' ? (
               // Simple TodoRead tool indicator
               <div className="bg-blue-50 dark:bg-blue-900/20 border-l-2 border-blue-300 dark:border-blue-600 pl-3 py-1 mb-2 text-sm text-blue-700 dark:text-blue-300">
-                📋 Read todo list
+                📋 读取待办列表
               </div>
             ) : (
               <div className="text-sm text-gray-700 dark:text-gray-300">
@@ -1056,7 +1056,7 @@ const MessageComponent = memo(({ message, index, prevMessage, createDiff, onFile
                 {message.reasoning && (
                   <details className="mb-3">
                     <summary className="cursor-pointer text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 font-medium">
-                      💭 Thinking...
+                      💭 思考中...
                     </summary>
                     <div className="mt-2 pl-4 border-l-2 border-gray-300 dark:border-gray-600 italic text-gray-600 dark:text-gray-400 text-sm">
                       <div className="whitespace-pre-wrap">
@@ -2175,7 +2175,7 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
         case 'claude-error':
           setChatMessages(prev => [...prev, {
             type: 'error',
-            content: `Error: ${latestMessage.error}`,
+            content: `错误: ${latestMessage.error}`,
             timestamp: new Date()
           }]);
           break;
@@ -2231,7 +2231,7 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
           // Show Cursor errors as error messages in chat
           setChatMessages(prev => [...prev, {
             type: 'error',
-            content: `Cursor error: ${latestMessage.error || 'Unknown error'}`,
+            content: `Cursor 错误: ${latestMessage.error || '未知错误'}`,
             timestamp: new Date()
           }]);
           break;
@@ -2364,7 +2364,7 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
           
           setChatMessages(prev => [...prev, {
             type: 'assistant',
-            content: 'Session interrupted by user.',
+            content: '会话已被用户中断。',
             timestamp: new Date()
           }]);
           break;
@@ -2375,7 +2375,7 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
           if (statusData) {
             // Parse the status message to extract relevant information
             let statusInfo = {
-              text: 'Working...',
+              text: '处理中...',
               tokens: 0,
               can_interrupt: true
             };
@@ -2967,7 +2967,7 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
     return (
       <div className="flex items-center justify-center h-full">
         <div className="text-center text-gray-500 dark:text-gray-400">
-          <p>Select a project to start chatting with Claude</p>
+          <p>选择一个项目以开始与 Claude 对话</p>
         </div>
       </div>
     );
@@ -2992,16 +2992,16 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
           <div className="text-center text-gray-500 dark:text-gray-400 mt-8">
             <div className="flex items-center justify-center space-x-2">
               <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-gray-400"></div>
-              <p>Loading session messages...</p>
+              <p>加载会话消息...</p>
             </div>
           </div>
         ) : chatMessages.length === 0 ? (
           <div className="flex items-center justify-center h-full">
             {!selectedSession && !currentSessionId && (
               <div className="text-center px-6 sm:px-4 py-8">
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Choose Your AI Assistant</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">选择您的 AI 助手</h2>
                 <p className="text-gray-600 dark:text-gray-400 mb-8">
-                  Select a provider to start a new conversation
+                  选择一个提供商以开始新对话
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
@@ -3023,7 +3023,7 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
                       <ClaudeLogo className="w-10 h-10" />
                       <div>
                         <p className="font-semibold text-gray-900 dark:text-white">Claude</p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">by Anthropic</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">由 Anthropic 提供</p>
                       </div>
                     </div>
                     {provider === 'claude' && (
@@ -3055,7 +3055,7 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
                       <CursorLogo className="w-10 h-10" />
                       <div>
                         <p className="font-semibold text-gray-900 dark:text-white">Cursor</p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">AI Code Editor</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">AI 代码编辑器</p>
                       </div>
                     </div>
                     {provider === 'cursor' && (
@@ -3073,7 +3073,7 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
                 {/* Model Selection for Cursor - Always reserve space to prevent jumping */}
                 <div className={`mb-6 transition-opacity duration-200 ${provider === 'cursor' ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    {provider === 'cursor' ? 'Select Model' : '\u00A0'}
+                    {provider === 'cursor' ? '选择模型' : '\u00A0'}
                   </label>
                   <select
                     value={cursorModel}
@@ -3092,11 +3092,11 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
                 </div>
                 
                 <p className="text-sm text-gray-500 dark:text-gray-400">
-                  {provider === 'claude' 
-                    ? 'Ready to use Claude AI. Start typing your message below.'
+                  {provider === 'claude'
+                    ? '准备使用 Claude AI。请在下方开始输入消息。'
                     : provider === 'cursor'
-                    ? `Ready to use Cursor with ${cursorModel}. Start typing your message below.`
-                    : 'Select a provider above to begin'
+                    ? `准备使用 Cursor ${cursorModel}。请在下方开始输入消息。`
+                    : '请在上方选择一个提供商以开始'
                   }
                 </p>
                 
@@ -3113,9 +3113,9 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
             )}
             {selectedSession && (
               <div className="text-center text-gray-500 dark:text-gray-400 px-6 sm:px-4">
-                <p className="font-bold text-lg sm:text-xl mb-3">Continue your conversation</p>
+                <p className="font-bold text-lg sm:text-xl mb-3">继续您的对话</p>
                 <p className="text-sm sm:text-base leading-relaxed">
-                  Ask questions about your code, request changes, or get help with development tasks
+                  询问有关代码的问题、请求更改或获取开发任务的帮助
                 </p>
                 
                 {/* Show NextTaskBanner for existing sessions too */}
@@ -3137,7 +3137,7 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
               <div className="text-center text-gray-500 dark:text-gray-400 py-3">
                 <div className="flex items-center justify-center space-x-2">
                   <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-gray-400"></div>
-                  <p className="text-sm">Loading older messages...</p>
+                  <p className="text-sm">加载较早的消息...</p>
                 </div>
               </div>
             )}
@@ -3147,8 +3147,8 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
               <div className="text-center text-gray-500 dark:text-gray-400 text-sm py-2 border-b border-gray-200 dark:border-gray-700">
                 {totalMessages > 0 && (
                   <span>
-                    Showing {sessionMessages.length} of {totalMessages} messages • 
-                    <span className="text-xs">Scroll up to load more</span>
+                    显示 {sessionMessages.length} / {totalMessages} 条消息 •
+                    <span className="text-xs">向上滚动以加载更多</span>
                   </span>
                 )}
               </div>
@@ -3157,12 +3157,12 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
             {/* Legacy message count indicator (for non-paginated view) */}
             {!hasMoreMessages && chatMessages.length > visibleMessageCount && (
               <div className="text-center text-gray-500 dark:text-gray-400 text-sm py-2 border-b border-gray-200 dark:border-gray-700">
-                Showing last {visibleMessageCount} messages ({chatMessages.length} total) • 
-                <button 
+                显示最近 {visibleMessageCount} 条消息 (共 {chatMessages.length} 条) •
+                <button
                   className="ml-1 text-blue-600 hover:text-blue-700 underline"
                   onClick={loadEarlierMessages}
                 >
-                  Load earlier messages
+                  加载更早的消息
                 </button>
               </div>
             )}
@@ -3206,7 +3206,7 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
                   <div className="animate-pulse">●</div>
                   <div className="animate-pulse" style={{ animationDelay: '0.2s' }}>●</div>
                   <div className="animate-pulse" style={{ animationDelay: '0.4s' }}>●</div>
-                  <span className="ml-2">Thinking...</span>
+                  <span className="ml-2">思考中...</span>
                 </div>
               </div>
             </div>
@@ -3245,7 +3245,7 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
                   ? 'bg-orange-50 dark:bg-orange-900/20 text-orange-700 dark:text-orange-300 border-orange-300 dark:border-orange-600 hover:bg-orange-100 dark:hover:bg-orange-900/30'
                   : 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border-blue-300 dark:border-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900/30'
               }`}
-              title="Click to change permission mode (or press Tab in input)"
+              title="点击更改权限模式 (或在输入框中按 Tab)"
             >
               <div className="flex items-center gap-2">
                 <div className={`w-2 h-2 rounded-full ${
@@ -3258,10 +3258,10 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
                     : 'bg-blue-500'
                 }`} />
                 <span>
-                  {permissionMode === 'default' && 'Default Mode'}
-                  {permissionMode === 'acceptEdits' && 'Accept Edits'}
-                  {permissionMode === 'bypassPermissions' && 'Bypass Permissions'}
-                  {permissionMode === 'plan' && 'Plan Mode'}
+                  {permissionMode === 'default' && '默认模式'}
+                  {permissionMode === 'acceptEdits' && '接受编辑'}
+                  {permissionMode === 'bypassPermissions' && '绕过权限'}
+                  {permissionMode === 'plan' && '计划模式'}
                 </span>
               </div>
             </button>
@@ -3271,7 +3271,7 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
               <button
                 onClick={scrollToBottom}
                 className="w-8 h-8 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:ring-offset-gray-800"
-                title="Scroll to bottom"
+                title="滚动到底部"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -3289,7 +3289,7 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
                 <svg className="w-8 h-8 text-blue-500 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                 </svg>
-                <p className="text-sm font-medium">Drop images here</p>
+                <p className="text-sm font-medium">拖放图片到此处</p>
               </div>
             </div>
           )}
@@ -3366,7 +3366,7 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
                 const isExpanded = e.target.scrollHeight > lineHeight * 2;
                 setIsTextareaExpanded(isExpanded);
               }}
-              placeholder="Ask Claude to help with your code... (@ to reference files)"
+              placeholder="询问 Claude 帮助处理代码... (使用 @ 引用文件)"
               disabled={isLoading}
               rows={1}
               className="chat-input-placeholder w-full pl-12 pr-28 sm:pr-40 py-3 sm:py-4 bg-transparent rounded-2xl focus:outline-none text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 disabled:opacity-50 resize-none min-h-[40px] sm:min-h-[56px] max-h-[40vh] sm:max-h-[300px] overflow-y-auto text-sm sm:text-base transition-all duration-200"
@@ -3397,7 +3397,7 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
                   setIsTextareaExpanded(false);
                 }}
                 className="absolute -left-0.5 -top-3 sm:right-28 sm:left-auto sm:top-1/2 sm:-translate-y-1/2 w-6 h-6 sm:w-8 sm:h-8 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 border border-gray-300 dark:border-gray-600 rounded-full flex items-center justify-center transition-all duration-200 group z-10 shadow-sm"
-                title="Clear input"
+                title="清除输入"
               >
                 <svg 
                   className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-gray-100 transition-colors" 
@@ -3419,7 +3419,7 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
               type="button"
               onClick={open}
               className="absolute left-2 bottom-4 p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
-              title="Attach images"
+              title="附加图片"
             >
               <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -3464,16 +3464,16 @@ function ChatInterface({ selectedProject, selectedSession, ws, sendMessage, mess
           </div>
           {/* Hint text */}
           <div className="text-xs text-gray-500 dark:text-gray-400 text-center mt-2 hidden sm:block">
-            {sendByCtrlEnter 
-              ? "Ctrl+Enter to send (IME safe) • Shift+Enter for new line • Tab to change modes • @ to reference files" 
-              : "Press Enter to send • Shift+Enter for new line • Tab to change modes • @ to reference files"}
+            {sendByCtrlEnter
+              ? "Ctrl+Enter 发送 (IME 安全) • Shift+Enter 换行 • Tab 切换模式 • @ 引用文件"
+              : "按 Enter 发送 • Shift+Enter 换行 • Tab 切换模式 • @ 引用文件"}
           </div>
           <div className={`text-xs text-gray-500 dark:text-gray-400 text-center mt-2 sm:hidden transition-opacity duration-200 ${
             isInputFocused ? 'opacity-100' : 'opacity-0'
           }`}>
-            {sendByCtrlEnter 
-              ? "Ctrl+Enter to send (IME safe) • Tab for modes • @ for files" 
-              : "Enter to send • Tab for modes • @ for files"}
+            {sendByCtrlEnter
+              ? "Ctrl+Enter 发送 (IME 安全) • Tab 切换模式 • @ 引用文件"
+              : "Enter 发送 • Tab 切换模式 • @ 引用文件"}
           </div>
         </form>
       </div>

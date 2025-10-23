@@ -36,7 +36,7 @@ function ImageViewer({ file, onClose }) {
             className="text-center text-gray-500 dark:text-gray-400"
             style={{ display: 'none' }}
           >
-            <p>Unable to load image</p>
+            <p>无法加载图片</p>
             <p className="text-sm mt-2">{file.path}</p>
           </div>
         </div>

@@ -16,7 +16,7 @@ const TaskMasterStatus = () => {
     return (
       <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
         <div className="animate-spin w-3 h-3 border border-gray-300 border-t-blue-500 rounded-full mr-2"></div>
-        Loading TaskMaster status...
+        正在加载 TaskMaster 状态...
       </div>
     );
   }
@@ -25,14 +25,14 @@ const TaskMasterStatus = () => {
     return (
       <div className="flex items-center text-sm text-red-500 dark:text-red-400">
         <span className="w-2 h-2 bg-red-500 rounded-full mr-2"></span>
-        TaskMaster Error
+        TaskMaster 错误
       </div>
     );
   }
 
   // Show MCP server status
   const mcpConfigured = mcpServerStatus?.hasMCPServer && mcpServerStatus?.isConfigured;
-  
+
   // Show project TaskMaster status
   const projectConfigured = currentProject?.taskmaster?.hasTaskmaster;
   const taskCount = currentProject?.taskmaster?.metadata?.taskCount || 0;
@@ -42,7 +42,7 @@ const TaskMasterStatus = () => {
     return (
       <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
         <span className="w-2 h-2 bg-gray-400 rounded-full mr-2"></span>
-        No project selected
+        未选择项目
       </div>
     );
   }
@@ -70,7 +70,7 @@ const TaskMasterStatus = () => {
       {projectConfigured && (
         <div className="text-xs text-gray-600 dark:text-gray-400">
           <span className="font-medium">
-            {completedCount}/{taskCount} tasks
+            {completedCount}/{taskCount} 任务
           </span>
           {taskCount > 0 && (
             <span className="ml-2 opacity-75">

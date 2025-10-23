@@ -17,14 +17,14 @@ export function MicButton({ onTranscript, className = '' }) {
     const checkSupport = () => {
       if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
         setIsSupported(false);
-        setError('Microphone not supported. Please use HTTPS or a modern browser.');
+        setError('不支持麦克风。请使用 HTTPS 或现代浏览器。');
         return;
       }
       
       // Additional check for secure context
       if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
         setIsSupported(false);
-        setError('Microphone requires HTTPS. Please use a secure connection.');
+        setError('麦克风需要 HTTPS。请使用安全连接。');
         return;
       }
       
@@ -44,7 +44,7 @@ export function MicButton({ onTranscript, className = '' }) {
 
       // Check if getUserMedia is available
       if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-        throw new Error('Microphone access not available. Please use HTTPS or a supported browser.');
+        throw new Error('无法访问麦克风。请使用 HTTPS 或受支持的浏览器。');
       }
 
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -108,16 +108,16 @@ export function MicButton({ onTranscript, className = '' }) {
       console.error('Failed to start recording:', err);
       
       // Provide specific error messages based on error type
-      let errorMessage = 'Microphone access failed';
-      
+      let errorMessage = '麦克风访问失败';
+
       if (err.name === 'NotAllowedError') {
-        errorMessage = 'Microphone access denied. Please allow microphone permissions.';
+        errorMessage = '麦克风访问被拒绝。请允许麦克风权限。';
       } else if (err.name === 'NotFoundError') {
-        errorMessage = 'No microphone found. Please check your audio devices.';
+        errorMessage = '未找到麦克风。请检查您的音频设备。';
       } else if (err.name === 'NotSupportedError') {
-        errorMessage = 'Microphone not supported by this browser.';
+        errorMessage = '此浏览器不支持麦克风。';
       } else if (err.name === 'NotReadableError') {
-        errorMessage = 'Microphone is being used by another application.';
+        errorMessage = '麦克风正被其他应用程序使用。';
       } else if (err.message.includes('HTTPS')) {
         errorMessage = err.message;
       }

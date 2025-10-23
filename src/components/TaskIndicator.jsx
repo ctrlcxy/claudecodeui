@@ -21,28 +21,28 @@ const TaskIndicator = ({
           icon: CheckCircle,
           color: 'text-green-500 dark:text-green-400',
           bgColor: 'bg-green-50 dark:bg-green-950',
-          label: 'TaskMaster Ready',
-          title: 'TaskMaster fully configured with MCP server'
+          label: 'TaskMaster 就绪',
+          title: 'TaskMaster 已完全配置,包含 MCP 服务器'
         };
-      
+
       case 'taskmaster-only':
         return {
           icon: Settings,
           color: 'text-blue-500 dark:text-blue-400',
           bgColor: 'bg-blue-50 dark:bg-blue-950',
-          label: 'TaskMaster Init',
-          title: 'TaskMaster initialized, MCP server needs setup'
+          label: 'TaskMaster 已初始化',
+          title: 'TaskMaster 已初始化,需要配置 MCP 服务器'
         };
-        
+
       case 'mcp-only':
         return {
           icon: AlertCircle,
           color: 'text-amber-500 dark:text-amber-400',
           bgColor: 'bg-amber-50 dark:bg-amber-950',
-          label: 'MCP Ready',
-          title: 'MCP server configured, TaskMaster needs initialization'
+          label: 'MCP 就绪',
+          title: 'MCP 服务器已配置,需要初始化 TaskMaster'
         };
-      
+
       case 'not-configured':
       case 'error':
       default:
@@ -50,8 +50,8 @@ const TaskIndicator = ({
           icon: X,
           color: 'text-gray-400 dark:text-gray-500',
           bgColor: 'bg-gray-50 dark:bg-gray-900',
-          label: 'No TaskMaster',
-          title: 'TaskMaster not configured'
+          label: '未配置 TaskMaster',
+          title: 'TaskMaster 未配置'
         };
     }
   };

@@ -6,6 +6,16 @@ function MobileNav({ activeTab, setActiveTab, isInputFocused }) {
   const { tasksEnabled } = useTasksSettings();
   // Detect dark mode
   const isDarkMode = document.documentElement.classList.contains('dark');
+
+  // 导航标签的中文翻译
+  const navLabels = {
+    chat: '聊天',
+    shell: '终端',
+    files: '文件',
+    git: 'Git',
+    tasks: '任务'
+  };
+
   const navItems = [
     {
       id: 'chat',
@@ -70,7 +80,7 @@ function MobileNav({ activeTab, setActiveTab, isInputFocused }) {
                   ? 'text-blue-600 dark:text-blue-400'
                   : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
               }`}
-              aria-label={item.id}
+              aria-label={navLabels[item.id]}
             >
               <Icon className="w-5 h-5" />
               {isActive && (

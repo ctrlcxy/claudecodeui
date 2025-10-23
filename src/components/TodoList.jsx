@@ -43,14 +43,26 @@ const TodoList = ({ todos, isResult = false }) => {
     }
   };
 
+  const statusMap = {
+    'completed': '已完成',
+    'in_progress': '进行中',
+    'pending': '待处理'
+  };
+
+  const priorityMap = {
+    'high': '高',
+    'medium': '中',
+    'low': '低'
+  };
+
   return (
     <div className="space-y-3">
       {isResult && (
         <div className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
-          Todo List ({todos.length} {todos.length === 1 ? 'item' : 'items'})
+          待办列表 ({todos.length} {todos.length === 1 ? '项' : '项'})
         </div>
       )}
-      
+
       {todos.map((todo, index) => (
         <div
           key={todo.id || `todo-${index}`}
@@ -59,25 +71,25 @@ const TodoList = ({ todos, isResult = false }) => {
           <div className="flex-shrink-0 mt-0.5">
             {getStatusIcon(todo.status)}
           </div>
-          
+
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between gap-2 mb-2">
               <p className={`text-sm font-medium ${todo.status === 'completed' ? 'line-through text-gray-500 dark:text-gray-400' : 'text-gray-900 dark:text-gray-100'}`}>
                 {todo.content}
               </p>
-              
+
               <div className="flex gap-1 flex-shrink-0">
                 <Badge
                   variant="outline"
                   className={`text-xs px-2 py-0.5 ${getPriorityColor(todo.priority)}`}
                 >
-                  {todo.priority}
+                  {priorityMap[todo.priority] || todo.priority}
                 </Badge>
                 <Badge
                   variant="outline"
                   className={`text-xs px-2 py-0.5 ${getStatusColor(todo.status)}`}
                 >
-                  {todo.status.replace('_', ' ')}
+                  {statusMap[todo.status] || todo.status.replace('_', ' ')}
                 </Badge>
               </div>
             </div>

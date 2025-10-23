@@ -38,23 +38,23 @@ const TaskMasterSetupWizard = ({
   const steps = [
     {
       id: 1,
-      title: 'Project Configuration',
-      description: 'Configure basic TaskMaster settings for your project'
+      title: '项目配置',
+      description: '为您的项目配置基本 TaskMaster 设置'
     },
     {
       id: 2,
-      title: 'MCP Server Setup',
-      description: 'Ensure TaskMaster MCP server is properly configured'
+      title: 'MCP 服务器设置',
+      description: '确保 TaskMaster MCP 服务器配置正确'
     },
     {
       id: 3,
-      title: 'PRD Creation',
-      description: 'Create or import a Product Requirements Document'
+      title: 'PRD 创建',
+      description: '创建或导入产品需求文档'
     },
     {
       id: 4,
-      title: 'Complete Setup',
-      description: 'Initialize TaskMaster and generate initial tasks'
+      title: '完成设置',
+      description: '初始化 TaskMaster 并生成初始任务'
     }
   ];
 
@@ -65,7 +65,7 @@ const TaskMasterSetupWizard = ({
       if (currentStep === 1) {
         // Validate project configuration
         if (!setupData.projectRoot) {
-          setError('Project root path is required');
+          setError('需要项目根路径');
           return;
         }
         setCurrentStep(2);
@@ -80,13 +80,13 @@ const TaskMasterSetupWizard = ({
           }));
           setCurrentStep(3);
         } catch (err) {
-          setError('Failed to check MCP server status. You can continue but some features may not work.');
+          setError('检查 MCP 服务器状态失败。您可以继续，但某些功能可能无法使用。');
           setCurrentStep(3);
         }
       } else if (currentStep === 3) {
         // Validate PRD step
         if (!setupData.prdContent.trim()) {
-          setError('Please create or import a PRD to continue');
+          setError('请创建或导入 PRD 以继续');
           return;
         }
         setCurrentStep(4);
@@ -123,7 +123,7 @@ const TaskMasterSetupWizard = ({
       });
 
       if (!initResponse.ok) {
-        throw new Error('Failed to initialize TaskMaster project');
+        throw new Error('初始化 TaskMaster 项目失败');
       }
 
       // Save PRD content if provided
@@ -156,7 +156,7 @@ const TaskMasterSetupWizard = ({
       onComplete?.();
       onClose?.();
     } catch (err) {
-      setError(err.message || 'Failed to complete TaskMaster setup');
+      setError(err.message || '完成 TaskMaster 设置失败');
     } finally {
       setLoading(false);
     }
@@ -186,17 +186,17 @@ const TaskMasterSetupWizard = ({
             <div className="text-center">
               <Settings className="w-12 h-12 text-blue-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                Project Configuration
+                项目配置
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                Configure TaskMaster settings for your project
+                为您的项目配置 TaskMaster 设置
               </p>
             </div>
 
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Project Root Path
+                  项目根路径
                 </label>
                 <input
                   type="text"
@@ -208,7 +208,7 @@ const TaskMasterSetupWizard = ({
               </div>
 
               <div className="space-y-3">
-                <h4 className="font-medium text-gray-900 dark:text-white">Options</h4>
+                <h4 className="font-medium text-gray-900 dark:text-white">选项</h4>
                 
                 <label className="flex items-center gap-3">
                   <input
@@ -217,7 +217,7 @@ const TaskMasterSetupWizard = ({
                     onChange={(e) => setSetupData(prev => ({ ...prev, initGit: e.target.checked }))}
                     className="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
                   />
-                  <span className="text-sm text-gray-700 dark:text-gray-300">Initialize Git repository</span>
+                  <span className="text-sm text-gray-700 dark:text-gray-300">初始化 Git 仓库</span>
                 </label>
 
                 <label className="flex items-center gap-3">
@@ -227,7 +227,7 @@ const TaskMasterSetupWizard = ({
                     onChange={(e) => setSetupData(prev => ({ ...prev, storeTasksInGit: e.target.checked }))}
                     className="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
                   />
-                  <span className="text-sm text-gray-700 dark:text-gray-300">Store tasks in Git</span>
+                  <span className="text-sm text-gray-700 dark:text-gray-300">在 Git 中存储任务</span>
                 </label>
 
                 <label className="flex items-center gap-3">
@@ -237,13 +237,13 @@ const TaskMasterSetupWizard = ({
                     onChange={(e) => setSetupData(prev => ({ ...prev, addAliases: e.target.checked }))}
                     className="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
                   />
-                  <span className="text-sm text-gray-700 dark:text-gray-300">Add shell aliases (tm, taskmaster)</span>
+                  <span className="text-sm text-gray-700 dark:text-gray-300">添加 shell 别名（tm、taskmaster）</span>
                 </label>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Rule Profiles
+                  规则配置
                 </label>
                 <div className="grid grid-cols-3 gap-2">
                   {['claude', 'cursor', 'vscode', 'roo', 'cline', 'windsurf'].map(rule => (
@@ -275,10 +275,10 @@ const TaskMasterSetupWizard = ({
             <div className="text-center">
               <Server className="w-12 h-12 text-purple-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                MCP Server Setup
+                MCP 服务器设置
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                TaskMaster works best with the MCP server configured
+                TaskMaster 在配置 MCP 服务器后效果最佳
               </p>
             </div>
 
@@ -287,10 +287,10 @@ const TaskMasterSetupWizard = ({
                 <AlertCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5" />
                 <div>
                   <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-1">
-                    MCP Server Configuration
+                    MCP 服务器配置
                   </h4>
                   <p className="text-sm text-blue-800 dark:text-blue-200 mb-3">
-                    To enable full TaskMaster integration, add the MCP server configuration to your Claude settings.
+                    要启用完整的 TaskMaster 集成，请将 MCP 服务器配置添加到 Claude 设置中。
                   </p>
                   
                   <div className="bg-white dark:bg-gray-800 rounded border p-3 mb-3">
@@ -301,7 +301,7 @@ const TaskMasterSetupWizard = ({
                         className="flex items-center gap-1 px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
                       >
                         <Copy className="w-3 h-3" />
-                        Copy
+                        复制
                       </button>
                     </div>
                     <pre className="text-xs text-gray-800 dark:text-gray-200 whitespace-pre-wrap">
@@ -327,7 +327,7 @@ const TaskMasterSetupWizard = ({
                       rel="noopener noreferrer"
                       className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center gap-1"
                     >
-                      Learn about MCP setup
+                      了解 MCP 设置
                       <ExternalLink className="w-3 h-3" />
                     </a>
                   </div>
@@ -336,17 +336,17 @@ const TaskMasterSetupWizard = ({
             </div>
 
             <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
-              <h4 className="font-medium text-gray-900 dark:text-white mb-2">Current Status</h4>
+              <h4 className="font-medium text-gray-900 dark:text-white mb-2">当前状态</h4>
               <div className="flex items-center gap-2">
                 {setupData.mcpConfigured ? (
                   <>
                     <CheckCircle className="w-4 h-4 text-green-500" />
-                    <span className="text-sm text-green-700 dark:text-green-300">MCP server is configured</span>
+                    <span className="text-sm text-green-700 dark:text-green-300">MCP 服务器已配置</span>
                   </>
                 ) : (
                   <>
                     <AlertCircle className="w-4 h-4 text-amber-500" />
-                    <span className="text-sm text-amber-700 dark:text-amber-300">MCP server not detected (optional)</span>
+                    <span className="text-sm text-amber-700 dark:text-amber-300">未检测到 MCP 服务器（可选）</span>
                   </>
                 )}
               </div>
@@ -360,17 +360,17 @@ const TaskMasterSetupWizard = ({
             <div className="text-center">
               <FileText className="w-12 h-12 text-green-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                Product Requirements Document
+                产品需求文档
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                Create or import a PRD to generate initial tasks
+                创建或导入 PRD 以生成初始任务
               </p>
             </div>
 
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  PRD Content
+                  PRD 内容
                 </label>
                 <textarea
                   value={setupData.prdContent}
@@ -404,10 +404,10 @@ Describe your project or feature...
                   <Sparkles className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5" />
                   <div>
                     <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-1">
-                      AI Task Generation
+                      AI 任务生成
                     </h4>
                     <p className="text-sm text-blue-800 dark:text-blue-200">
-                      TaskMaster will analyze your PRD and automatically generate a structured task list with dependencies, priorities, and implementation details.
+                      TaskMaster 将分析您的 PRD 并自动生成包含依赖关系、优先级和实现详情的结构化任务列表。
                     </p>
                   </div>
                 </div>
@@ -422,48 +422,48 @@ Describe your project or feature...
             <div className="text-center">
               <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                Complete Setup
+                完成设置
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                Ready to initialize TaskMaster for your project
+                准备好为您的项目初始化 TaskMaster
               </p>
             </div>
 
             <div className="bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-lg p-4">
               <h4 className="font-medium text-green-900 dark:text-green-100 mb-3">
-                Setup Summary
+                设置摘要
               </h4>
               <ul className="space-y-2 text-sm text-green-800 dark:text-green-200">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4" />
-                  Project: {setupData.projectRoot}
+                  项目：{setupData.projectRoot}
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4" />
-                  Rules: {setupData.rules.join(', ')}
+                  规则：{setupData.rules.join('、')}
                 </li>
                 {setupData.mcpConfigured && (
                   <li className="flex items-center gap-2">
                     <CheckCircle className="w-4 h-4" />
-                    MCP server configured
+                    MCP 服务器已配置
                   </li>
                 )}
                 <li className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4" />
-                  PRD content ready ({setupData.prdContent.length} characters)
+                  PRD 内容已准备（{setupData.prdContent.length} 个字符）
                 </li>
               </ul>
             </div>
 
             <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
               <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2">
-                What happens next?
+                接下来会发生什么？
               </h4>
               <ol className="list-decimal list-inside space-y-1 text-sm text-blue-800 dark:text-blue-200">
-                <li>Initialize TaskMaster project structure</li>
-                <li>Save your PRD to <code>.taskmaster/docs/prd.txt</code></li>
-                <li>Generate initial tasks from your PRD</li>
-                <li>Set up project configuration and rules</li>
+                <li>初始化 TaskMaster 项目结构</li>
+                <li>将您的 PRD 保存到 <code>.taskmaster/docs/prd.txt</code></li>
+                <li>从您的 PRD 生成初始任务</li>
+                <li>设置项目配置和规则</li>
               </ol>
             </div>
           </div>
@@ -489,10 +489,10 @@ Describe your project or feature...
             <Sparkles className="w-6 h-6 text-blue-600" />
             <div>
               <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
-                TaskMaster Setup Wizard
+                TaskMaster 设置向导
               </h1>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                Step {currentStep} of {totalSteps}: {steps[currentStep - 1]?.description}
+                步骤 {currentStep} / {totalSteps}：{steps[currentStep - 1]?.description}
               </p>
             </div>
           </div>
@@ -500,7 +500,7 @@ Describe your project or feature...
           <button
             onClick={onClose}
             className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
-            title="Close"
+            title="关闭"
           >
             <X className="w-5 h-5" />
           </button>
@@ -554,7 +554,7 @@ Describe your project or feature...
               <div className="flex items-start gap-3">
                 <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 mt-0.5" />
                 <div>
-                  <h4 className="font-medium text-red-900 dark:text-red-100 mb-1">Error</h4>
+                  <h4 className="font-medium text-red-900 dark:text-red-100 mb-1">错误</h4>
                   <p className="text-sm text-red-800 dark:text-red-200">{error}</p>
                 </div>
               </div>
@@ -570,11 +570,11 @@ Describe your project or feature...
             className="flex items-center gap-2 px-4 py-2 text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <ChevronLeft className="w-4 h-4" />
-            Previous
+            上一步
           </button>
           
           <div className="text-sm text-gray-500 dark:text-gray-400">
-            {currentStep} of {totalSteps}
+            {currentStep} / {totalSteps}
           </div>
           
           <button
@@ -585,11 +585,11 @@ Describe your project or feature...
             {loading ? (
               <>
                 <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                {currentStep === totalSteps ? 'Setting up...' : 'Processing...'}
+                {currentStep === totalSteps ? '设置中...' : '处理中...'}
               </>
             ) : (
               <>
-                {currentStep === totalSteps ? 'Complete Setup' : 'Next'}
+                {currentStep === totalSteps ? '完成设置' : '下一步'}
                 <ChevronRight className="w-4 h-4" />
               </>
             )}

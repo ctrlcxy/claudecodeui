@@ -509,7 +509,7 @@ This document outlines the requirements for building an AI-powered task manageme
         <div className="w-full h-full md:rounded-lg md:w-auto md:h-auto p-8 flex items-center justify-center bg-white dark:bg-gray-900">
           <div className="flex items-center gap-3">
             <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-600"></div>
-            <span className="text-gray-900 dark:text-white">Loading PRD...</span>
+            <span className="text-gray-900 dark:text-white">加载 PRD...</span>
           </div>
         </div>
       </div>
@@ -548,7 +548,7 @@ This document outlines the requirements for building an AI-powered task manageme
                         setFileName(sanitizedValue);
                       }}
                       className="font-medium text-gray-900 dark:text-white bg-transparent border-none outline-none min-w-0 flex-1 text-base sm:text-sm placeholder-gray-400 dark:placeholder-gray-500"
-                      placeholder="Enter PRD filename"
+                      placeholder="输入 PRD 文件名"
                       maxLength={100}
                     />
                     <span className="text-sm sm:text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap ml-1">.txt</span>
@@ -556,7 +556,7 @@ This document outlines the requirements for building an AI-powered task manageme
                   <button
                     onClick={() => document.querySelector('input[placeholder="Enter PRD filename"]')?.focus()}
                     className="p-1 text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
-                    title="Click to edit filename"
+                    title="点击编辑文件名"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
@@ -579,7 +579,7 @@ This document outlines the requirements for building an AI-powered task manageme
               
               {/* Description - smaller on mobile */}
               <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 truncate mt-1">
-                Product Requirements Document
+                产品需求文档
               </p>
             </div>
           </div>
@@ -594,7 +594,7 @@ This document outlines the requirements for building an AI-powered task manageme
                   ? 'text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900' 
                   : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
               )}
-              title={previewMode ? 'Switch to edit mode' : 'Preview markdown'}
+              title={previewMode ? '切换到编辑模式' : '预览 markdown'}
             >
               <Eye className="w-5 h-5 md:w-4 md:h-4" />
             </button>
@@ -608,7 +608,7 @@ This document outlines the requirements for building an AI-powered task manageme
                   ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900' 
                   : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
               )}
-              title={wordWrap ? 'Disable word wrap' : 'Enable word wrap'}
+              title={wordWrap ? '禁用自动换行' : '启用自动换行'}
             >
               <span className="text-sm md:text-xs font-mono font-bold">↵</span>
             </button>
@@ -616,7 +616,7 @@ This document outlines the requirements for building an AI-powered task manageme
             <button
               onClick={() => setIsDarkMode(!isDarkMode)}
               className="p-2 md:p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 min-w-[44px] min-h-[44px] md:min-w-0 md:min-h-0 flex items-center justify-center"
-              title="Toggle theme"
+              title="切换主题"
             >
               <span className="text-lg md:text-base">{isDarkMode ? '☀️' : '🌙'}</span>
             </button>
@@ -624,7 +624,7 @@ This document outlines the requirements for building an AI-powered task manageme
             <button
               onClick={handleDownload}
               className="p-2 md:p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 min-w-[44px] min-h-[44px] md:min-w-0 md:min-h-0 flex items-center justify-center"
-              title="Download PRD"
+              title="下载 PRD"
             >
               <Download className="w-5 h-5 md:w-4 md:h-4" />
             </button>
@@ -637,10 +637,10 @@ This document outlines the requirements for building an AI-powered task manageme
                 'bg-purple-600 hover:bg-purple-700 text-white',
                 'min-h-[44px] md:min-h-0'
               )}
-              title="Generate tasks from PRD content"
+              title="从 PRD 内容生成任务"
             >
               <Sparkles className="w-4 h-4" />
-              <span className="hidden md:inline">Generate Tasks</span>
+              <span className="hidden md:inline">生成任务</span>
             </button>
             
             <button
@@ -659,12 +659,12 @@ This document outlines the requirements for building an AI-powered task manageme
                   <svg className="w-5 h-5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="hidden sm:inline">Saved!</span>
+                  <span className="hidden sm:inline">已保存！</span>
                 </>
               ) : (
                 <>
                   <Save className="w-5 h-5 md:w-4 md:h-4" />
-                  <span className="hidden sm:inline">{saving ? 'Saving...' : 'Save PRD'}</span>
+                  <span className="hidden sm:inline">{saving ? '保存中...' : '保存 PRD'}</span>
                 </>
               )}
             </button>
@@ -672,7 +672,7 @@ This document outlines the requirements for building an AI-powered task manageme
             <button
               onClick={toggleFullscreen}
               className="hidden md:flex p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 items-center justify-center"
-              title={isFullscreen ? 'Exit fullscreen' : 'Fullscreen'}
+              title={isFullscreen ? '退出全屏' : '全屏'}
             >
               {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
             </button>
@@ -680,7 +680,7 @@ This document outlines the requirements for building an AI-powered task manageme
             <button
               onClick={onClose}
               className="p-2 md:p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 min-w-[44px] min-h-[44px] md:min-w-0 md:min-h-0 flex items-center justify-center"
-              title="Close"
+              title="关闭"
             >
               <X className="w-6 h-6 md:w-4 md:h-4" />
             </button>
@@ -730,14 +730,14 @@ This document outlines the requirements for building an AI-powered task manageme
         {/* Footer */}
         <div className="flex items-center justify-between p-3 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 flex-shrink-0">
           <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
-            <span>Lines: {content.split('\n').length}</span>
-            <span>Characters: {content.length}</span>
-            <span>Words: {content.split(/\s+/).filter(word => word.length > 0).length}</span>
-            <span>Format: Markdown</span>
+            <span>行数：{content.split('\n').length}</span>
+            <span>字符：{content.length}</span>
+            <span>字数：{content.split(/\s+/).filter(word => word.length > 0).length}</span>
+            <span>格式：Markdown</span>
           </div>
           
           <div className="text-sm text-gray-500 dark:text-gray-400">
-            Press Ctrl+S to save • Esc to close
+            按 Ctrl+S 保存 • Esc 关闭
           </div>
         </div>
       </div>
@@ -752,7 +752,7 @@ This document outlines the requirements for building an AI-powered task manageme
                 <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900/50 rounded-lg flex items-center justify-center">
                   <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Generate Tasks from PRD</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">从 PRD 生成任务</h3>
               </div>
               <button
                 onClick={() => setShowGenerateModal(false)}
@@ -772,22 +772,22 @@ This document outlines the requirements for building an AI-powered task manageme
                   </div>
                   <div className="flex-1">
                     <h4 className="font-semibold text-purple-900 dark:text-purple-100 mb-2">
-                      💡 Pro Tip: Ask Claude Code Directly!
+                      💡 专业提示：直接询问 Claude Code！
                     </h4>
                     <p className="text-sm text-purple-800 dark:text-purple-200 mb-3">
-                      You can simply ask Claude Code in the chat to parse your PRD and generate tasks. 
-                      The AI assistant will automatically save your PRD and create detailed tasks with implementation details.
+                      您可以直接在聊天中询问 Claude Code 解析您的 PRD 并生成任务。
+                      AI 助手将自动保存您的 PRD 并创建包含实现细节的详细任务。
                     </p>
                     
                     <div className="bg-white dark:bg-gray-800 rounded border border-purple-200 dark:border-purple-700 p-3 mb-3">
-                      <p className="text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">💬 Example:</p>
+                      <p className="text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">💬 示例：</p>
                       <p className="text-xs text-gray-900 dark:text-white font-mono">
                         "I've just initialized a new project with Claude Task Master. I have a PRD at .taskmaster/docs/{fileName.endsWith('.txt') || fileName.endsWith('.md') ? fileName : `${fileName}.txt`}. Can you help me parse it and set up the initial tasks?"
                       </p>
                     </div>
                     
                     <p className="text-xs text-purple-700 dark:text-purple-300">
-                      <strong>This will:</strong> Save your PRD, analyze its content, and generate structured tasks with subtasks, dependencies, and implementation details.
+                      <strong>这将：</strong> 保存您的 PRD，分析其内容，并生成包含子任务、依赖关系和实现详情的结构化任务。
                     </p>
                   </div>
                 </div>
@@ -796,7 +796,7 @@ This document outlines the requirements for building an AI-powered task manageme
               {/* Learn More Link */}
               <div className="text-center pt-4 border-t border-gray-200 dark:border-gray-700">
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
-                  For more examples and advanced usage patterns:
+                  了解更多示例和高级使用模式：
                 </p>
                 <a
                   href="https://github.com/eyaltoledano/claude-task-master/blob/main/docs/examples.md"
@@ -804,7 +804,7 @@ This document outlines the requirements for building an AI-powered task manageme
                   rel="noopener noreferrer"
                   className="inline-block text-sm text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 underline font-medium"
                 >
-                  View TaskMaster Documentation →
+                  查看 TaskMaster 文档 →
                 </a>
               </div>
 
@@ -814,7 +814,7 @@ This document outlines the requirements for building an AI-powered task manageme
                   onClick={() => setShowGenerateModal(false)}
                   className="w-full px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
                 >
-                  Got it, I'll ask Claude Code directly
+                  明白了，我会直接询问 Claude Code
                 </button>
               </div>
             </div>
@@ -833,13 +833,13 @@ This document outlines the requirements for building an AI-powered task manageme
                   <AlertTriangle className="w-5 h-5 text-yellow-600 dark:text-yellow-400" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                  File Already Exists
+                  文件已存在
                 </h3>
               </div>
               
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
-                A PRD file named "{fileName.endsWith('.txt') || fileName.endsWith('.md') ? fileName : `${fileName}.txt`}" already exists. 
-                Do you want to overwrite it with the current content?
+                名为 "{fileName.endsWith('.txt') || fileName.endsWith('.md') ? fileName : `${fileName}.txt`}" 的 PRD 文件已存在。
+                您想用当前内容覆盖它吗？
               </p>
               
               <div className="flex justify-end space-x-3">
@@ -847,7 +847,7 @@ This document outlines the requirements for building an AI-powered task manageme
                   onClick={() => setShowOverwriteConfirm(false)}
                   className="px-4 py-2 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
                 >
-                  Cancel
+                  取消
                 </button>
                 <button
                   onClick={async () => {
@@ -857,7 +857,7 @@ This document outlines the requirements for building an AI-powered task manageme
                   className="px-4 py-2 text-sm text-white bg-yellow-600 hover:bg-yellow-700 rounded-md flex items-center space-x-2 transition-colors"
                 >
                   <Save className="w-4 h-4" />
-                  <span>Overwrite</span>
+                  <span>覆盖</span>
                 </button>
               </div>
             </div>
